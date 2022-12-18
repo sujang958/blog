@@ -1,4 +1,6 @@
 ---
+import { Image } from "@astrojs/image/components"
+
 export interface Props {
   title: string
   category: string
@@ -11,11 +13,17 @@ export interface Props {
 const { title, category, date, description, image, id } = Astro.props
 ---
 
-<a href={`/posts/${id}`} class="flex flex-row space-x-12 cursor-pointer group">
+<a href={`/posts/${id}`} class="flex flex-row space-x-16 cursor-pointer group">
   <div
     class="flex-none rounded-lg overflow-hidden flex flex-col items-center justify-center"
   >
-    <img src={image} alt="Cool image" class="object-contain h-52" />
+    <Image
+      alt="The Thumbnail"
+      src={image}
+      width={220}
+      height={220}
+      class="object-contain"
+    />
   </div>
   <div class="flex-1 flex flex-col justify-between py-2">
     <div>

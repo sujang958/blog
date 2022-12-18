@@ -7,12 +7,15 @@ import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
+import image from "@astrojs/image";
+
+// https://astro.build/config
 export default defineConfig({
   integrations: [tailwind({
     config: {
       applyBaseStyles: true
     }
-  })],
+  }), image({serviceEntryPoint: '@astrojs/image/sharp'})],
   output: "server",
   adapter: vercel()
 });
