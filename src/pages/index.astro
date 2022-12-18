@@ -1,0 +1,20 @@
+---
+import BlogItem from "../components/blogItem.astro"
+import Layout from "../layouts/Layout.astro"
+
+const posts = await Astro.glob("../pages/posts/*.md")
+---
+
+<Layout title="Home">
+  <p class="text-4xl font-bold">All Posts</p>
+  <div class="py-10"></div>
+  <div class="flex flex-col space-y-16">
+    {
+      posts.map(
+        (
+          { frontmatter } // @ts-ignore
+        ) => <BlogItem {...frontmatter} />
+      )
+    }
+  </div>
+</Layout>
