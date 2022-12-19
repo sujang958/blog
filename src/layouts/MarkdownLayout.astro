@@ -18,7 +18,7 @@ const { title, frontmatter } = Astro.props
     <div class="py-8"></div>
     <p class="text-xl">{frontmatter.category}</p>
     <p class="mt-1 font-bold text-5xl text-black">{frontmatter.title}</p>
-    <p class="mt-4">{frontmatter.date}</p>
+    <p class="mt-4">{Intl.DateTimeFormat('us-en', {}).format(new Date(Number(frontmatter.date)))}</p>
     <div class="prose-lg py-16">
       <slot />
     </div>

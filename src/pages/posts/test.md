@@ -1,10 +1,10 @@
 ---
 layout: '../../layouts/MarkdownLayout.astro'
-title: Building a blog with Astro
-id: building-a-blog-with-astro
+title: test
+id: test
 description: I built my blog with Astro, and the performance is legit. See how fast it is.
 category: Frontend
-date: 1671446419181
+date: 1675446419181
 image: '/images/astro-logo.png'
 ---
 

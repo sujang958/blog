@@ -37,6 +37,6 @@ const { title, category, date, description, image, id } = Astro.props
         {description}
       </p>
     </div>
-    <p class="mt-2 text-lg text-black/70 font-medium">{date}</p>
+    <p class="mt-2 text-lg text-black/70 font-medium">{Intl.DateTimeFormat('us-en', {}).format(new Date(Number(date)))}</p>
   </div>
 </a>
