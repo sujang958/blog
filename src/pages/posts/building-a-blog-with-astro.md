@@ -6,8 +6,6 @@ description: I built my blog with Astro, and the performance is legit. See how f
 category: Frontend
 date: 1671446419181
 image: "/images/astro-logo.png"
-
-draft: true
 ---
 
 ## **What is Astro?**
@@ -45,6 +43,9 @@ I used Astro Intergrations to add [TailwindCSS], one of my favorites. I typed on
 
 ## **Performance**
 
+![The Performance Image](/images/building-a-blog-with-astro/performance.png)
+
+As you can see, the speed is pretty fast. I've never got that score before. I'm just suprised.
 
 <!-- Links -->
 
