@@ -13,13 +13,22 @@ const { title, frontmatter } = Astro.props
     <img
       src={frontmatter.image}
       alt="The Blog Image"
-      class="object-contain h-64 rounded-lg p-8"
+      class="object-contain h-64 rounded-lg p-8 bg-white"
     />
     <div class="py-8"></div>
-    <p class="text-xl">{frontmatter.category}</p>
-    <p class="mt-1 font-bold text-5xl text-black">{frontmatter.title}</p>
-    <p class="mt-4">{frontmatter.date}</p>
-    <div class="prose-lg py-16">
+    <p class="text-base md:text-xl">{frontmatter.category}</p>
+    <p class="mt-1 font-bold text-3xl md:text-5xl">{frontmatter.title}</p>
+    <p class="mt-4 text-sm md:text-base">
+      {
+        Intl.DateTimeFormat("us-en", {}).format(
+          new Date(Number(frontmatter.date))
+        )
+      }
+    </p>
+    {frontmatter.draft && <p class="text-base md:text-xl italic mt-8">⚠️ This post is a draft</p>}
+    <div
+      class="prose-base md:prose-lg py-16 prose-a:underline prose-code:bg-black prose-code:rounded prose-code:text-white prose-code:p-1 prose-img:rounded-lg dark:prose-code:bg-white dark:prose-code:text-black"
+    >
       <slot />
     </div>
   </div>
