@@ -1,5 +1,5 @@
 ## Todo
 
 - [ ] Image Loading Blur
-- [ ] Dark Theme
+- [x] Dark Theme
 - [ ] Search
