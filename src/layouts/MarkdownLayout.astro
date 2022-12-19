@@ -25,6 +25,7 @@ const { title, frontmatter } = Astro.props
         )
       }
     </p>
+    {frontmatter.draft && <p class="text-xl italic mt-8">⚠️ This post is draft</p>}
     <div
       class="prose-lg py-16 prose-a:underline prose-code:bg-black prose-code:rounded prose-code:text-white prose-code:p-1 dark:prose-code:bg-white dark:prose-code:text-black"
     >

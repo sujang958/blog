@@ -6,6 +6,8 @@ description: I built my blog with Astro, and the performance is legit. See how f
 category: Frontend
 date: 1671446419181
 image: "/images/astro-logo.png"
+
+draft: true
 ---
 
 ## **What is Astro?**
