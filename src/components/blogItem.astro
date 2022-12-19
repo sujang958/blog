@@ -13,15 +13,16 @@ export interface Props {
 const { title, category, date, description, image, id } = Astro.props
 ---
 
-<a href={`/posts/${id}`} class="flex flex-row space-x-16 cursor-pointer group">
+<a href={`/posts/${id}`} class="flex flex-row space-x-16 cursor-pointer items-center group">
   <div
     class="flex-none rounded-lg overflow-hidden flex flex-col items-center justify-center"
   >
     <Image
       alt="The Thumbnail"
       src={image}
-      width={220}
-      height={220}
+      width={200}
+      height={200}
+      loading="lazy"
       class="object-contain"
     />
   </div>
