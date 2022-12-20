@@ -2,15 +2,26 @@
   import { onMount } from "svelte"
 
   let isDarkMode: boolean = false
+  let isDecided: boolean = false
 
   onMount(() => {
-    if (window.matchMedia)
+    const storedDarkThemeSetting = localStorage.getItem("darkTheme")
+    if (storedDarkThemeSetting)
+      isDarkMode = storedDarkThemeSetting == "dark" ? true : false
+    else if (window.matchMedia)
       isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+
+    isDecided = true
   })
 
   $: isDarkMode
-      ? document.documentElement.classList.add("dark")
-      : document.documentElement.classList.remove("dark")
+    ? document.documentElement.classList.add("dark")
+    : document.documentElement.classList.remove("dark")
+
+  $: isDecided &&
+    (isDarkMode
+      ? localStorage.setItem("darkTheme", "dark")
+      : localStorage.setItem("darkTheme", "light"))
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
