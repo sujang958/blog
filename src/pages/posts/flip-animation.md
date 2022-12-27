@@ -87,11 +87,11 @@ That's it! isn't it easy?
 ## **Why should we animate with FLIP?**
 
 FLIP only uses scale, transform, opacity, and scale.
-These property don't make the browser re-compute other elements' layout.
-But if you animate an element with its width, height, etc, then the browser should re-compute other elements' layout recursively.
+These properties don't make the browser re-compute other elements' layouts.
+But if you animate an element with its width, height, etc, then the browser should re-compute other elements' layouts recursively.
 If that computing takes greater than 16.7ms, the animation will be stuttering.
 
-Flip is the solution of this. Flip computes the values beforehand and only uses not computing-expensive properties so the animation can go smooth.
+Flip is the solution to this. Flip computes the values beforehand and only uses not computing-expensive properties so the animation can go smoothly.
 
 ![The Performance Image](/images/flip-animation/flip-performance.avif)
 _src: https://web.dev/chrome-dev-summit/_
