@@ -1,6 +1,6 @@
 ---
 layout: "../../layouts/MarkdownLayout.astro"
-title: "Moder JS: Proxy and Reflect"
+title: "JS API: Proxy and Reflect"
 id: proxy-and-reflect
 description: The proxy and reflect features are amazing!
 category: JavaScript
