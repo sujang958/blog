@@ -25,11 +25,28 @@ const { title, frontmatter } = Astro.props
         )
       }
     </p>
-    {frontmatter.draft && <p class="text-base md:text-xl italic mt-8">⚠️ This post is a draft</p>}
+    {
+      frontmatter.draft && (
+        <p class="text-base md:text-xl italic mt-8">⚠️ This post is a draft</p>
+      )
+    }
     <div
-      class="prose-base md:prose-lg py-16 prose-a:underline prose-code:bg-black prose-code:rounded prose-code:text-white prose-code:p-1 prose-img:rounded-lg dark:prose-code:bg-white dark:prose-code:text-black"
+      class="prose-base md:prose-lg py-16 prose-a:underline prose-code:bg-black prose-code:rounded-lg prose-code:text-white prose-code:p-1 prose-img:rounded-lg break-words"
     >
       <slot />
     </div>
   </div>
 </Layout>
+
+<script>
+  const anObject = new Proxy(
+    { name: "Hun", age: 16 },
+    {
+      set(object, propertyName, value) {
+        if (propertyName == "age" && value < 0) return false
+
+        return Reflect.set(object, propertyName, value)
+      },
+    }
+  )
+</script>

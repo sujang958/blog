@@ -31,9 +31,42 @@ All you have to do is just add `return Reflect.set(target, key, newValue)`, Simp
 
 ## **Other Usages**
 
+The Proxy object also can be used in validating an object's properties.
+
+Suppose there's an object that stores name and age.
+
+```js
+const anObject = {
+  name: "Hun",
+  age: 16,
+}
+```
+
+In this case, the age must not be less than 0.
+```js
+anObject.age = -1   // You can't do this!
+```
+
+The Proxy solves this problem.
+```js
+const withProxy = new Proxy(
+    { name: "Hun", age: 16 },
+    {
+      set(object, propertyName, value) {
+        if (propertyName == "age" && value < 0) return false
+        
+        return Reflect.set(object, propertyName, value)
+      },
+    }
+  )
+
+withProxy.age = -1            // This won't change the value
+console.log(withProxy.age)    // Expected output: 16
+```
+
 
 ## **References**
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy  
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect
 
 <!-- Links -->
