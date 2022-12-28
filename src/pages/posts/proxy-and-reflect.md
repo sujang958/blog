@@ -11,7 +11,7 @@ image: "/images/incognito.png"
 ## **What are they?**
 
 Have you ever seen the methods like [[Get]], [[Set]] before?
-They're JavaScript's internal methods which defind JavaScript's default actions.
+They're JavaScript's internal methods which define JavaScript's default actions.
 The Proxy allows you to intercept events that go to an object and define default actions like the [[Get]], [[Set]] I mentioned above.
 
 Imagine [Nodejs's EventEmitter]. Suppose that setting and getting properties are the events that go to the EventEmitter in Nodejs and you can define what it does when the event arrives.
@@ -28,6 +28,8 @@ Meanwhile, the Proxy defines the Default action of an object. That means if you 
 Now, you might want to add default actions in your own actions.
 The Reflect object solves this problem. It has JavaScript's default actions.
 All you have to do is just add `return Reflect.set(target, key, newValue)`, Simple.
+
+## **Other Usages**
 
 
 ## **References**
