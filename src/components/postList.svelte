@@ -36,9 +36,7 @@
 
 <div class="flex flex-col space-y-16">
   <p>Check the arrays in the Console tab</p>
-  {#if $Filter}
-    {#each postsBeingSeen as post}
-      <PostItem data={post.frontmatter} />
-    {/each}
-  {/if}
+  {#each postsBeingSeen as post}
+    <PostItem data={post.frontmatter} />
+  {/each}
 </div>
