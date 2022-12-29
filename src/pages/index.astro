@@ -1,26 +1,21 @@
 ---
-import BlogItem from "../components/blogItem.astro"
+import FilterButton from "../components/filterButton.svelte";
+import FilterList from "../components/filterList.svelte";
+import PostList from "../components/postList.svelte";
 import Layout from "../layouts/Layout.astro"
 
 const posts = await Astro.glob("../pages/posts/*.md")
 ---
 
 <Layout title="Home">
-  <p class="text-4xl font-bold">All Posts</p>
-  <div class="py-10"></div>
-  <div class="flex flex-col space-y-16">
-    {
-      posts
-        .sort(
-          ({ frontmatter: { date1 } }, { frontmatter: { date2 } }) =>
-            date1 - date2
-        )
-        .reverse()
-        .map(
-          (
-            { frontmatter } // @ts-ignore
-          ) => <BlogItem {...frontmatter} />
-        )
-    }
+  <div class="flex flex-row items-center justify-between">
+    <p class="text-4xl font-bold">Posts</p>
+    <FilterButton client:load />
   </div>
+
+  <FilterList client:load />
+
+  <div class="py-10"></div>
+  
+  <PostList posts={posts} client:load />
 </Layout>
