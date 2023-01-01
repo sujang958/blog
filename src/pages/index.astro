@@ -1,7 +1,7 @@
 ---
-import FilterButton from "../components/filterButton.svelte";
-import FilterList from "../components/filterList.svelte";
-import PostList from "../components/postList.svelte";
+import FilterButton from "../components/filterButton.svelte"
+import FilterList from "../components/filterList.svelte"
+import PostList from "../components/postList.svelte"
 import Layout from "../layouts/Layout.astro"
 
 const posts = await Astro.glob("../pages/posts/*.md")
@@ -10,12 +10,12 @@ const posts = await Astro.glob("../pages/posts/*.md")
 <Layout title="Home">
   <div class="flex flex-row items-center justify-between">
     <p class="text-4xl font-bold">Posts</p>
-    <FilterButton client:load />
+    <!-- <FilterButton client:load /> -->
   </div>
 
-  <FilterList client:load />
+  <!-- <FilterList client:load /> -->
 
   <div class="py-10"></div>
-  
+
   <PostList posts={posts} client:load />
 </Layout>

@@ -8,7 +8,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier ./"
   },
   "dependencies": {
     "@astrojs/image": "^0.12.1",
@@ -18,11 +19,13 @@
     "@astrojs/vercel": "^2.3.6",
     "@tailwindcss/forms": "^0.5.3",
     "astro": "^1.7.1",
+    "prettier-plugin-tailwindcss": "^0.2.1",
     "sharp": "^0.31.2",
     "svelte": "^3.46.4",
     "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.8"
+    "@tailwindcss/typography": "^0.5.8",
+    "prettier": "^2.8.1"
   }
 }
