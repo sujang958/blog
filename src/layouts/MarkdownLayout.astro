@@ -9,15 +9,15 @@ const { title, frontmatter } = Astro.props
 ---
 
 <Layout title={title}>
-  <div class="py-16 max-w-2xl w-full self-center flex flex-col">
+  <div class="flex w-full max-w-2xl flex-col self-center py-16">
     <img
       src={frontmatter.image}
       alt="The Blog Image"
-      class="object-contain h-64 rounded-lg p-8 bg-white"
+      class="h-64 rounded-lg bg-white object-contain p-8"
     />
     <div class="py-8"></div>
     <p class="text-base md:text-xl">{frontmatter.category}</p>
-    <p class="mt-1 font-bold text-3xl md:text-5xl">{frontmatter.title}</p>
+    <p class="mt-1 text-3xl font-bold md:text-5xl">{frontmatter.title}</p>
     <p class="mt-4 text-sm md:text-base">
       {
         Intl.DateTimeFormat("us-en", {}).format(
@@ -25,11 +25,28 @@ const { title, frontmatter } = Astro.props
         )
       }
     </p>
-    {frontmatter.draft && <p class="text-base md:text-xl italic mt-8">⚠️ This post is a draft</p>}
+    {
+      frontmatter.draft && (
+        <p class="mt-8 text-base italic md:text-xl">⚠️ This post is a draft</p>
+      )
+    }
     <div
-      class="prose-base md:prose-lg py-16 prose-a:underline prose-code:bg-black prose-code:rounded prose-code:text-white prose-code:p-1 prose-img:rounded-lg dark:prose-code:bg-white dark:prose-code:text-black"
+      class="prose-base break-words py-16 prose-a:underline prose-code:rounded-lg prose-code:bg-black prose-code:p-1 prose-code:text-white prose-img:rounded-lg md:prose-lg"
     >
       <slot />
     </div>
   </div>
 </Layout>
+
+<script>
+  const anObject = new Proxy(
+    { name: "Hun", age: 16 },
+    {
+      set(object, propertyName, value) {
+        if (propertyName == "age" && value < 0) return false
+
+        return Reflect.set(object, propertyName, value)
+      },
+    }
+  )
+</script>

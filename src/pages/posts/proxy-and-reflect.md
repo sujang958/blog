@@ -11,7 +11,7 @@ image: "/images/incognito.png"
 ## **What are they?**
 
 Have you ever seen the methods like [[Get]], [[Set]] before?
-They're JavaScript's internal methods which defind JavaScript's default actions.
+They're JavaScript's internal methods which define JavaScript's default actions.
 The Proxy allows you to intercept events that go to an object and define default actions like the [[Get]], [[Set]] I mentioned above.
 
 Imagine [Nodejs's EventEmitter]. Suppose that setting and getting properties are the events that go to the EventEmitter in Nodejs and you can define what it does when the event arrives.
@@ -29,9 +29,44 @@ Now, you might want to add default actions in your own actions.
 The Reflect object solves this problem. It has JavaScript's default actions.
 All you have to do is just add `return Reflect.set(target, key, newValue)`, Simple.
 
+## **Other Usages**
+
+The Proxy object also can be used in validating an object's properties.
+
+Suppose there's an object that stores name and age.
+
+```js
+const anObject = {
+  name: "Hun",
+  age: 16,
+}
+```
+
+In this case, the age must not be less than 0.
+```js
+anObject.age = -1   // You can't do this!
+```
+
+The Proxy solves this problem.
+```js
+const withProxy = new Proxy(
+    { name: "Hun", age: 16 },
+    {
+      set(object, propertyName, value) {
+        if (propertyName == "age" && value < 0) return false
+        
+        return Reflect.set(object, propertyName, value)
+      },
+    }
+  )
+
+withProxy.age = -1            // This won't change the value
+console.log(withProxy.age)    // Expected output: 16
+```
+
 
 ## **References**
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy  
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect
 
 <!-- Links -->
