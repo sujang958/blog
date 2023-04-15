@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/MarkdownLayout.astro"
 title: "Git Hooks: The Timesaver"
 id: git-hooks
 description: All developers need this.

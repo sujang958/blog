@@ -13,9 +13,6 @@ import image from "@astrojs/image";
 import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
-import mdx from "@astrojs/mdx";
-
-// https://astro.build/config
 export default defineConfig({
   integrations: [tailwind({
     config: {
@@ -23,7 +20,7 @@ export default defineConfig({
     }
   }), image({
     serviceEntryPoint: '@astrojs/image/sharp'
-  }), svelte(), mdx()],
+  }), svelte()],
   output: "server",
   adapter: vercel()
 });
