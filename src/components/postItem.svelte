@@ -11,7 +11,7 @@
   class="flex flex-col md:flex-row justify-center md:space-x-16 cursor-pointer items-center group"
 >
   <div
-    class="flex-none w-full md:w-auto rounded-lg overflow-hidden bg-white p-6 grid place-items-center"
+    class="flex-none w-full md:w-auto rounded-lg overflow-hidden bg-neutral-100 p-6 grid place-items-center"
   >
     <img
       alt="The Thumbnail"

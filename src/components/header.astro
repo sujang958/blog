@@ -1,34 +1,30 @@
 ---
-import DarkModeButton from "./darkModeButton.svelte";
-
+import DarkModeButton from "./darkModeButton.svelte"
 ---
 
 <header
-  class="fixed top-0 flex flex-col justify-center items-center w-full border-b border-black/20 py-4 bg-white dark:bg-black/90 dark:border-white/20"
+  class="fixed top-0 flex w-full flex-col items-center justify-center bg-neutral-100 px-2 py-5 shadow-md dark:bg-neutral-900"
 >
-  <div class="px-4 max-w-4xl w-full flex flex-row items-center justify-between">
-    <div>
-      <a href="/" class="text-xl font-semibold">sujang's blog</a>
+  <div class="flex w-full max-w-4xl flex-row items-center justify-between px-4">
+    <div class="flex flex-row items-center gap-x-2">
+      <img
+        src="/popcat.jpg"
+        alt=""
+        class="h-7 overflow-hidden rounded-full object-contain"
+      />
+      <a href="/" class="text-2xl font-semibold">sujang.blog</a>
     </div>
-    <div class="flex flex-row items-center">
-      <!-- <p class="cursor-default relative mr-7">
+    <div class="flex flex-row items-center gap-x-6">
+      <a href="https://github.com/sujang958/" target="_blank">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="#000"
-          class="w-5 h-5 absolute right-3 top-1/2 transform-gpu -translate-y-1/2 cursor-pointer"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
-            clip-rule="evenodd"></path>
+          viewBox="0 0 24 24"
+          class="h-5 w-5 fill-black dark:fill-white"
+          ><path
+            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+          ></path>
         </svg>
-        <input
-          type="text"
-          class="rounded-3xl py-1 text-sm border-black/20 text-black"
-          placeholder="Search for posts"
-        />
-      </p> -->
+      </a>
       <DarkModeButton client:only />
     </div>
   </div>
