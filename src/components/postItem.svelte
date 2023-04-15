@@ -11,13 +11,13 @@
   class="flex flex-col md:flex-row justify-center md:space-x-16 cursor-pointer items-center group"
 >
   <div
-    class="flex-none w-full md:w-auto rounded-lg overflow-hidden bg-white p-4 flex flex-col items-center justify-center"
+    class="flex-none w-full md:w-auto rounded-lg overflow-hidden bg-white p-6 grid place-items-center"
   >
     <img
       alt="The Thumbnail"
       src={data.image}
-      width={200}
-      height={200}
+      width={190}
+      height={190}
       loading="lazy"
       class="object-contain"
     />
