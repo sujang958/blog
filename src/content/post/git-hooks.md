@@ -1,6 +1,5 @@
 ---
 title: "Git Hooks: The Timesaver"
-id: git-hooks
 description: All developers need this.
 category: Git
 date: 1672558273110

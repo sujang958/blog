@@ -109,6 +109,13 @@ declare module 'astro:content' {
   collection: "post",
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] },
+"n-a-o-operators.md": {
+  id: "n-a-o-operators.md",
+  slug: "n-a-o-operators",
+  body: string,
+  collection: "post",
+  data: InferEntrySchema<"post">
+} & { render(): Render[".md"] },
 "proxy-and-reflect.md": {
   id: "proxy-and-reflect.md",
   slug: "proxy-and-reflect",

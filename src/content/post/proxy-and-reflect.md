@@ -1,6 +1,5 @@
 ---
 title: "JS API: Proxy and Reflect"
-id: proxy-and-reflect
 slug: proxy-and-reflect
 description: The proxy and reflect features are amazing!
 category: JavaScript

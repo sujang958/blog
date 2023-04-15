@@ -28,8 +28,16 @@ const { Content } = await render()
     <p class="mt-4 text-sm md:text-base">
       {Intl.DateTimeFormat("us-en", {}).format(new Date(Number(data.date)))}
     </p>
+    <style is:inline>
+      .md-content p code {
+        color: #f95e54;
+        background-color: #0d1117;
+        padding: 0.2rem 0.3rem;
+        border-radius: 0.35rem;
+      }
+    </style>
     <div
-      class="prose-base break-words py-16 prose-a:underline prose-img:rounded-lg md:prose-lg"
+      class="md-content prose-base break-words py-16 prose-a:underline prose-img:rounded-lg md:prose-lg"
     >
       <Content />
     </div>
