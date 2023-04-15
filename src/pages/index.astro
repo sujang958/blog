@@ -1,21 +1,23 @@
 ---
-import FilterButton from "../components/filterButton.svelte"
-import FilterList from "../components/filterList.svelte"
-import PostList from "../components/postList.svelte"
-import Layout from "../layouts/Layout.astro"
+import { getCollection } from "astro:content"
+import Layout from "@layouts/Layout.astro"
+import PostItem from "@components/postItem.svelte"
 
-const posts = await Astro.glob("../pages/posts/*.md")
+const posts = await getCollection("post")
 ---
 
 <Layout title="Home">
   <div class="flex flex-row items-center justify-between">
     <p class="text-4xl font-bold">Posts</p>
-    <!-- <FilterButton client:load /> -->
   </div>
-
-  <!-- <FilterList client:load /> -->
 
   <div class="py-10"></div>
 
-  <PostList posts={posts} client:load />
+  <div class="flex flex-col gap-y-16">
+    {
+      posts
+        .sort((a, b) => b.data.date - a.data.date)
+        .map((post) => <PostItem post={post} />)
+    }
+  </div>
 </Layout>

@@ -1,30 +1,23 @@
 <script lang="ts">
-  interface PostItemProps {
-    title: string
-    category: string
-    description: string
-    date: string
-    image: string
-    id: string
-  }
+  import type { CollectionEntry } from "astro:content"
 
-  export let data: PostItemProps | any
+  export let post: CollectionEntry<"post">
 
-  const { title, category, date, description, image, id } = data
+  const { data, slug } = post
 </script>
 
 <a
-  href={`/posts/${id}`}
+  href={`/posts/${slug}`}
   class="flex flex-col md:flex-row justify-center md:space-x-16 cursor-pointer items-center group"
 >
   <div
-    class="flex-none w-full md:w-auto rounded-lg overflow-hidden bg-white p-4 flex flex-col items-center justify-center"
+    class="flex-none w-full md:w-auto rounded-lg overflow-hidden bg-white p-6 grid place-items-center"
   >
     <img
       alt="The Thumbnail"
-      src={image}
-      width={200}
-      height={200}
+      src={data.image}
+      width={190}
+      height={190}
       loading="lazy"
       class="object-contain"
     />
@@ -34,21 +27,21 @@
       <p
         class="text-lg md:text-xl text-black/70 dark:text-white/70 font-medium"
       >
-        {category}
+        {data.category}
       </p>
       <p
         class="text-3xl md:text-5xl font-bold group-hover:text-blue-500 transition duration-300"
       >
-        {title}
+        {data.title}
       </p>
       <p class="text-base md:text-xl font-medium py-3">
-        {description}
+        {data.description}
       </p>
     </div>
     <p
       class="mt-2 text-sm md:text-lg text-black/70 dark:text-white/70 font-medium"
     >
-      {Intl.DateTimeFormat("us-en", {}).format(new Date(Number(date)))}
+      {Intl.DateTimeFormat("us-en", {}).format(new Date(data.date))}
     </p>
   </div>
 </a>
