@@ -11,15 +11,13 @@
   class="flex flex-col md:flex-row justify-center md:space-x-16 cursor-pointer items-center group"
 >
   <div
-    class="flex-none w-full md:w-auto rounded-lg overflow-hidden bg-white p-6 grid place-items-center"
+    class="flex-none w-full md:w-auto rounded-lg overflow-hidden bg-white p-0 grid place-items-center"
   >
     <img
       alt="The Thumbnail"
       src={data.image}
-      width={190}
-      height={190}
       loading="lazy"
-      class="object-contain"
+      class="object-contain h-44"
     />
   </div>
   <div class="flex-1 flex flex-col justify-between py-2 md:mt-0 mt-8">

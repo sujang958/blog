@@ -102,6 +102,13 @@ declare module 'astro:content' {
 
 	const entryMap: {
 		"post": {
+"Promise-allSettled.md": {
+  id: "Promise-allSettled.md",
+  slug: "promise-allsettled",
+  body: string,
+  collection: "post",
+  data: InferEntrySchema<"post">
+} & { render(): Render[".md"] },
 "git-hooks.md": {
   id: "git-hooks.md",
   slug: "git-hooks",

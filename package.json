@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.8",
+    "@vite-pwa/astro": "^0.0.5",
     "prettier": "^2.8.1"
   }
 }
