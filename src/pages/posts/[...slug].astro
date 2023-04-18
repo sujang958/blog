@@ -17,13 +17,11 @@ const { Content } = await render()
 
 <Layout title={data.title}>
   <div class="flex w-full max-w-2xl flex-col self-center py-16">
-    <div class="overflow-hidden rounded-lg">
-      <img
-        src={data.image}
-        alt="The Blog Image"
-        class="h-full overflow-hidden rounded-lg object-contain"
-      />
-    </div>
+    <img
+      src={data.image}
+      alt="The Blog Image"
+      class="h-64 rounded-lg bg-white object-contain p-8"
+    />
     <div class="py-8"></div>
     <p class="text-base md:text-xl">{data.category}</p>
     <p class="mt-1 text-3xl font-bold md:text-5xl">{data.title}</p>

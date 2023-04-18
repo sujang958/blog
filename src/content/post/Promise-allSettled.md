@@ -3,7 +3,7 @@ title: "Promise.allSettled"
 description: Save your innocent promise values
 category: JavaScript
 date: 1681738568962
-image: "/images/promise_allsettled.png"
+image: "/images/allSettled.png"
 ---
 
 ## Promise
