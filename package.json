@@ -9,7 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier ./"
+    "format": "prettier ./ --write"
   },
   "dependencies": {
     "@astrojs/svelte": "^2.1.0",
