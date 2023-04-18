@@ -16,26 +16,26 @@ The Promise.all() function is a particularly useful tool for working with multip
 
 ```ts
 const [result1, result2] = await Promise.all([
-	fetch("http://site.site"),
-	fetch("http://site.site"),
+  fetch("http://site.site"),
+  fetch("http://site.site"),
 ])
 ```
 
 ## Limitations of `Promise.all`
 
-One limitation of Promise.all() is that it will reject as soon as any of the input Promises reject. This can be frustrating if you want to wait for all of the Promises to settle, even if some of them reject. That's where Promise.allSettled() comes in. 
+One limitation of Promise.all() is that it will reject as soon as any of the input Promises reject. This can be frustrating if you want to wait for all of the Promises to settle, even if some of them reject. That's where Promise.allSettled() comes in.
 
 ## The Solution: `Promise.allSettled()`
 
 This function works similarly to Promise.all(), but it always resolves, even if some of the input Promises reject. The resulting Promise resolves to an array of objects, one for each input Promise, indicating whether the Promise fulfilled or rejected and the value or reason.
 
-In this code, the `greet` function rejects with a 50% chance. If we had used `Promise.all` instead of `Promise.allSettled`, we wouldn't have gotten any value if we had a rejected function. But, with `Promise.allSettled`, 
+In this code, the `greet` function rejects with a 50% chance. If we had used `Promise.all` instead of `Promise.allSettled`, we wouldn't have gotten any value if we had a rejected function. But, with `Promise.allSettled`,
 we can get results of the functions without any errors. The rejected functions have a `reason` property instead of the `value` property, which is present in the fulfilled functions.
 
 ```ts
 const greet = async (name: string) => {
   const random = Math.random() * 10
-  
+
   if (Math.floor(random) < 5) {
     throw new Error(`I don't like your name, ${name}`)
   }
