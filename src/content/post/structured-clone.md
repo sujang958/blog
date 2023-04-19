@@ -22,7 +22,7 @@ In this code, we assigned `obj1` to `obj2` and changed `obj2`'s `a` property to 
 
 ```tsx
 const obj1 = {
-	a: 1
+  a: 1,
 }
 const obj2 = obj1
 
@@ -39,7 +39,7 @@ This method **only works if there are no nested objects**. If there are nested o
 
 ```tsx
 const obj1 = {
-	nestedObject: [1]
+  nestedObject: [1],
 }
 const obj2 = {}
 
@@ -56,7 +56,7 @@ Yes, this method works even if you have nested objects. However, `JSON.stringify
 
 ```jsx
 const obj1 = {
-	bigint: 2n
+  bigint: 2n,
 }
 
 const obj2 = JSON.parse(JSON.stringify(obj1))
