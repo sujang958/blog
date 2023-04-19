@@ -9,7 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier ./"
+    "format": "prettier ./ --write"
   },
   "dependencies": {
     "@astrojs/svelte": "^2.1.0",
@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.8",
+    "@vite-pwa/astro": "^0.0.5",
     "prettier": "^2.8.1"
   }
 }
