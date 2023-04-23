@@ -4,8 +4,8 @@ description: The only type guaranteed to be unique
 category: JavaScript
 date: 1682343587516
 image: "/images/symbol.png"
-
 ---
+
 # Symbol
 
 The Symbol type is a new primitive type in JavaScript that was introduced in ECMAScript 2015 (ES6). It was added as a way to create unique identifiers that cannot be duplicated. The Symbol type is often used as keys within objects, as they are guaranteed to be unique.
@@ -15,8 +15,8 @@ To create a symbol, you can use the `Symbol()` function. The `Symbol()` function
 Since symbols are guaranteed to be unique, even if we create a lot of symbols with the same description, Each symbol is unique from the others. So the description doesn’t affect anything.
 
 ```jsx
-const idSymbol1 = Symbol('id')
-const idSymbol2 = Symbol('id')
+const idSymbol1 = Symbol("id")
+const idSymbol2 = Symbol("id")
 
 console.log(idSymbol1 == idSymbol2) // false
 ```
@@ -24,13 +24,12 @@ console.log(idSymbol1 == idSymbol2) // false
 Symbols can also be used as properties on objects. Here's an example of using a symbol as a property on an object:
 
 ```jsx
-const mySymbol = Symbol('my description');
+const mySymbol = Symbol("my description")
 const obj = {
-  [mySymbol]: 'value'
-};
+  [mySymbol]: "value",
+}
 
-console.log(obj[mySymbol]); // 'value'
-
+console.log(obj[mySymbol]) // 'value'
 ```
 
 ## Not enumerable
@@ -38,14 +37,13 @@ console.log(obj[mySymbol]); // 'value'
 One important thing to note is that symbols are not enumerable, which means they will not be included in for...in loops and `Object.keys()`. However, you can use the `Object.getOwnPropertySymbols()` method to get an array of all symbols on an object.
 
 ```jsx
-const mySymbol = Symbol('my description');
+const mySymbol = Symbol("my description")
 const obj = {
-  [mySymbol]: 'value'
-};
+  [mySymbol]: "value",
+}
 
-const symbols = Object.getOwnPropertySymbols(obj);
-console.log(symbols[0]); // Symbol(my description)
-
+const symbols = Object.getOwnPropertySymbols(obj)
+console.log(symbols[0]) // Symbol(my description)
 ```
 
 Overall, the Symbol type is a powerful addition to JavaScript that allows developers to create unique identifiers that cannot be duplicated.
