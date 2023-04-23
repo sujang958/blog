@@ -118,6 +118,13 @@ declare module "astro:content" {
         collection: "post"
         data: InferEntrySchema<"post">
       } & { render(): Render[".md"] }
+      "closure.md": {
+        id: "closure.md"
+        slug: "closure"
+        body: string
+        collection: "post"
+        data: InferEntrySchema<"post">
+      } & { render(): Render[".md"] }
       "n-a-o-operators.md": {
         id: "n-a-o-operators.md"
         slug: "n-a-o-operators"
@@ -128,6 +135,13 @@ declare module "astro:content" {
       "structured-clone.md": {
         id: "structured-clone.md"
         slug: "structured-clone"
+        body: string
+        collection: "post"
+        data: InferEntrySchema<"post">
+      } & { render(): Render[".md"] }
+      "symbol.md": {
+        id: "symbol.md"
+        slug: "symbol"
         body: string
         collection: "post"
         data: InferEntrySchema<"post">
