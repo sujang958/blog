@@ -18,7 +18,7 @@ In JavaScript, a closure is a function that retains access to variables in its l
 
 When a function is defined inside another function, the inner function forms a closure. This means that the inner function has access to the variables in its parent function's scope, even after the parent function has finished executing. Closures are useful for creating private variables and functions, and for implementing the module pattern in JavaScript.
 
-```tsx
+```js
 function makeCounter() {
   let count = 0
 

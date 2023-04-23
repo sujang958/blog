@@ -14,7 +14,7 @@ To create a symbol, you can use the `Symbol()` function. The `Symbol()` function
 
 Since symbols are guaranteed to be unique, even if we create a lot of symbols with the same description, Each symbol is unique from the others. So the description doesn’t affect anything.
 
-```jsx
+```js
 const idSymbol1 = Symbol("id")
 const idSymbol2 = Symbol("id")
 
@@ -23,7 +23,7 @@ console.log(idSymbol1 == idSymbol2) // false
 
 Symbols can also be used as properties on objects. Here's an example of using a symbol as a property on an object:
 
-```jsx
+```js
 const mySymbol = Symbol("my description")
 const obj = {
   [mySymbol]: "value",
@@ -36,7 +36,7 @@ console.log(obj[mySymbol]) // 'value'
 
 One important thing to note is that symbols are not enumerable, which means they will not be included in for...in loops and `Object.keys()`. However, you can use the `Object.getOwnPropertySymbols()` method to get an array of all symbols on an object.
 
-```jsx
+```js
 const mySymbol = Symbol("my description")
 const obj = {
   [mySymbol]: "value",
@@ -52,7 +52,7 @@ Overall, the Symbol type is a powerful addition to JavaScript that allows develo
 
 Sometimes, you may want to create a symbol accessible across files. To create that symbol, you can use `Symbol.for()` function. Unlike the `Symbol()` function, it takes an argument named `key` , which affects the uniqueness of the symbol. if the keys are the same in a global symbol, the symbol is also the same.
 
-```jsx
+```js
 const id = Symbol.for("id")
 const idToo = Symbol.for("id")
 
