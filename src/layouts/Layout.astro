@@ -65,7 +65,8 @@ const { title } = Astro.props
     <meta name="msapplication-TileColor" content="#000" />
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
     <meta name="theme-color" content="#000" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   </head>
   <body
     class="bg-white font-pretendard text-black selection:bg-black selection:text-white dark:bg-neutral-900 dark:text-white dark:selection:bg-white dark:selection:text-black"
@@ -84,25 +85,4 @@ const { title } = Astro.props
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("/sw.js")
   }
-
-  const themeColor = document.querySelector(
-    "meta[name='apple-mobile-web-app-status-bar-style']"
-  )
-
-  const observer = new MutationObserver((mutations) => {
-    if (!themeColor) return
-
-    for (const mutation of mutations) {
-      if (mutation.attributeName !== "class" || mutation.type !== "attributes")
-        continue
-
-      if (document.documentElement.classList.contains("dark")) {
-        themeColor.setAttribute("value", "black")
-      } else {
-        themeColor.setAttribute("value", "white")
-      }
-    }
-  })
-
-  observer.observe(document.documentElement, { attributes: true })
 </script>
