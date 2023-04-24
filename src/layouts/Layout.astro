@@ -62,9 +62,10 @@ const { title } = Astro.props
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/manifest.json" />
-    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileColor" content="#000" />
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#000" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
   </head>
   <body
     class="bg-white font-pretendard text-black selection:bg-black selection:text-white dark:bg-neutral-900 dark:text-white dark:selection:bg-white dark:selection:text-black"
@@ -84,24 +85,19 @@ const { title } = Astro.props
     navigator.serviceWorker.register("/sw.js")
   }
 
-  const themeColor = document.querySelector("meta[name='theme-color']")
-  const msThemeColor = document.querySelector(
-    "meta[name='msapplication-TileColor']"
-  )
+  const themeColor = document.querySelector("meta[name='apple-mobile-web-app-status-bar-style']")
 
   const observer = new MutationObserver((mutations) => {
-    if (!themeColor || !msThemeColor) return
+    if (!themeColor) return
 
     for (const mutation of mutations) {
       if (mutation.attributeName !== "class" || mutation.type !== "attributes")
         continue
 
       if (document.documentElement.classList.contains("dark")) {
-        themeColor.setAttribute("value", "#000")
-        msThemeColor.setAttribute("value", "#000")
+        themeColor.setAttribute("value", "black")
       } else {
-        themeColor.setAttribute("value", "#fff")
-        msThemeColor.setAttribute("value", "#fff")
+        themeColor.setAttribute("value", "white")
       }
     }
   })
