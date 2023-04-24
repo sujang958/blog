@@ -83,4 +83,28 @@ const { title } = Astro.props
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("/sw.js")
   }
+
+  const themeColor = document.querySelector("meta[name='theme-color']")
+  const msThemeColor = document.querySelector(
+    "meta[name='msapplication-TileColor']"
+  )
+
+  const observer = new MutationObserver((mutations) => {
+    if (!themeColor || !msThemeColor) return
+
+    for (const mutation of mutations) {
+      if (mutation.attributeName !== "class" || mutation.type !== "attributes")
+        continue
+
+      if (document.documentElement.classList.contains("dark")) {
+        themeColor.setAttribute("value", "#000")
+        msThemeColor.setAttribute("value", "#000")
+      } else {
+        themeColor.setAttribute("value", "#fff")
+        msThemeColor.setAttribute("value", "#fff")
+      }
+    }
+  })
+
+  observer.observe(document.documentElement, { attributes: true })
 </script>
