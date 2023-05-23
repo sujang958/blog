@@ -16,24 +16,26 @@ When you call a debounced function, the already scheduled function is canceled a
 
 ```js
 function debounce(func, delay) {
-  let timerId;
-  
+  let timerId
+
   return function (...args) {
-    clearTimeout(timerId);
-    
+    clearTimeout(timerId)
+
     timerId = setTimeout(() => {
-      func.apply(this, args);
-    }, delay);
-  };
+      func.apply(this, args)
+    }, delay)
+  }
 }
 
 function handleInput() {
-  console.log('Debounced input handling');
+  console.log("Debounced input handling")
 }
 
-const debouncedHandleInput = debounce(handleInput, 300);
+const debouncedHandleInput = debounce(handleInput, 300)
 
-document.getElementById('myInput').addEventListener('input', debouncedHandleInput);
+document
+  .getElementById("myInput")
+  .addEventListener("input", debouncedHandleInput)
 ```
 
 ## Throttling
@@ -44,28 +46,28 @@ When calling a throttled function, if an already called function is still waitin
 
 ```js
 function throttle(func, delay) {
-  let canRun = true;
-  
+  let canRun = true
+
   return function (...args) {
-    if (!canRun) return;
-    
-    canRun = false;
-    
+    if (!canRun) return
+
+    canRun = false
+
     setTimeout(() => {
-      func.apply(this, args);
-      canRun = true;
-    }, delay);
-  };
+      func.apply(this, args)
+      canRun = true
+    }, delay)
+  }
 }
 
 // Usage example
 function handleScroll() {
   // Do something on scroll
-  console.log('Throttled scroll handling');
+  console.log("Throttled scroll handling")
 }
 
-const throttledHandleScroll = throttle(handleScroll, 200);
+const throttledHandleScroll = throttle(handleScroll, 200)
 
 // Attach the throttled function to the scroll event
-window.addEventListener('scroll', throttledHandleScroll);
+window.addEventListener("scroll", throttledHandleScroll)
 ```
