@@ -60,14 +60,11 @@ function throttle(func, delay) {
   }
 }
 
-// Usage example
 function handleScroll() {
-  // Do something on scroll
   console.log("Throttled scroll handling")
 }
 
 const throttledHandleScroll = throttle(handleScroll, 200)
 
-// Attach the throttled function to the scroll event
 window.addEventListener("scroll", throttledHandleScroll)
 ```
