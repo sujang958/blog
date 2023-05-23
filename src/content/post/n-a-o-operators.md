@@ -1,7 +1,7 @@
 ---
 title: "??=, ||=, &&="
 description: Another weird operator to save us from infinite if statements.
-category: Git
+category: JavaScript
 date: 1681557813484
 image: "/images/nullish_assign_operator.png"
 ---
