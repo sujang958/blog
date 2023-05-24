@@ -125,6 +125,13 @@ declare module "astro:content" {
         collection: "post"
         data: InferEntrySchema<"post">
       } & { render(): Render[".md"] }
+      "core-web-vitals.md": {
+        id: "core-web-vitals.md"
+        slug: "core-web-vitals"
+        body: string
+        collection: "post"
+        data: InferEntrySchema<"post">
+      } & { render(): Render[".md"] }
       "debouncing-and-throttling.md": {
         id: "debouncing-and-throttling.md"
         slug: "debouncing-and-throttling"
