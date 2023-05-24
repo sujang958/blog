@@ -1,6 +1,6 @@
 ---
 title: Core Web Vitals
-description: Recommendations for LCP, TTFB, FID, INP presented at Google I/O.
+description: Recommendations for LCP, TTFB, FID, INP announced at Google I/O.
 category: Web
 date: 1684936123984
 image: "/images/core_web_vitals.png"
