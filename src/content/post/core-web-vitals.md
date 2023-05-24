@@ -17,17 +17,17 @@ This helps browser’s preload scanner find and load the images.
 `background-image` and `loading="lazy"` properties may have discoverability problems.
 
 ```html
-<img src="/adsf.jpg" loading="lazy">
-<img style="background-image: url(asdf.jpg)">
-<img data-src="/asdf.jpg">
+<img src="/adsf.jpg" loading="lazy" />
+<img style="background-image: url(asdf.jpg)" />
+<img data-src="/asdf.jpg" />
 ```
 
 To fix this, you can use a traditional image element, or add a preload link.
 
 ```html
-<img src="/adsf.jpg" alt="asdf">
+<img src="/adsf.jpg" alt="asdf" />
 
-<link rel="preload" href="/adsf.jpg" as="image">
+<link rel="preload" href="/adsf.jpg" as="image" />
 ```
 
 ### Ensure the LCP resource is prioritized
@@ -35,14 +35,14 @@ To fix this, you can use a traditional image element, or add a preload link.
 Using the new Fetch priority API can help prioritize the resource.
 
 ```html
-<img src="lcp.jpg" alt="..." fetchpriority="high">
+<img src="lcp.jpg" alt="..." fetchpriority="high" />
 ```
 
 > 💡 Note: this feature can cause compatibillity issues ([browser_compatibility](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/fetchPriority#browser_compatibility))
 
 ### Use a CDN to optimize document and resource TTFB
 
-*TTFB means “time to first byte”*
+_TTFB means “time to first byte”_
 
 Browser cannot load any resources until it receives the first byte of the initial HTML document response. The sooner you can get the first bytes to the browser the sooner the browser can start processing it.
 
@@ -55,23 +55,23 @@ So, the ways to reduce TTFB is to **reduce the distance between users and server
 Example: an image without dimensions will cause CLS.
 
 ```html
-<img src="adf.jpg" alt="asdf">
+<img src="adf.jpg" alt="asdf" />
 
 <!-- Explicitly setting width and height -->
-<img src="adf.jpg" alt="asdf" width="200" height="200">
+<img src="adf.jpg" alt="asdf" width="200" height="200" />
 ```
 
 ```css
 video {
-	width: 100%;
-	height: auto;
-	aspect-ratio: 16 / 9;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
 }
 ```
 
 ```css
 .ad {
-	min-height: 1rem
+  min-height: 1rem;
 }
 ```
 
@@ -98,7 +98,6 @@ chrome devtools coverage feature, code splitting
 ### Avoid large rendering updates
 
 Keep your DOM size small, CSS contain or content-visibillity, only use `requestAnimationFrame` for critical visual updates.
-
 
 ### Useful Tools
 
