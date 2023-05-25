@@ -6,31 +6,53 @@ import webPush from "web-push"
 webPush.setVapidDetails(
   "https://sujang-git-dev-sujang958.vercel.app/",
   PUBLIC_KEY,
-  process.env.SECRET_PRIVATE_KEY ?? ""
+  import.meta.env.SECRET_PRIVATE_KEY ?? ""
 )
 
-if (!("SECRET_PRIVATE_KEY" in process.env)) {
-  process.exit(404)
-}
-
 export const post: APIRoute = async ({ request }) => {
-  const body: PushSubscriptionJSON = await request.json()
+  const body: { subscription: PushSubscriptionJSON } = await request.json()
 
-  if (!body.endpoint || !body.expirationTime)
+  if (!body?.subscription)
+    return new Response(
+      JSON.stringify({ ok: false, message: "Subscription required" }),
+      { status: 400 }
+    )
+
+  const { subscription } = body
+
+  if (
+    !subscription.endpoint ||
+    !subscription.keys?.auth ||
+    !subscription.keys?.p256dh
+  )
     return new Response(
       JSON.stringify({
         ok: false,
-        message: "Endpoint and expirationTime are mandatory fields",
+        message: "endpoint, auth and p256dh are mandatory fields",
       }),
       { status: 400 }
     )
 
+  const storedSubscription = await prisma.subscription.findUnique({
+    where: { endpoint: subscription.endpoint },
+  })
+
+  if (storedSubscription)
+    return new Response(
+      JSON.stringify({ ok: true, message: "Already registered" }),
+      { status: 201 }
+    )
+
   await prisma.subscription.create({
     data: {
-      endpoint: body.endpoint,
-      expirationTime: body.expirationTime,
+      endpoint: subscription.endpoint,
+      expirationTime: subscription.expirationTime,
+      auth: subscription.keys.auth,
+      p256dh: subscription.keys.p256dh,
     },
   })
 
-  return new Response("", { status: 201 })
+  return new Response(JSON.stringify({ ok: true }), { status: 201 })
 }
+
+// webPush.sendNotification({keys: {}}, "Your Push Payload Text")

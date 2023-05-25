@@ -107,28 +107,26 @@ const { title, class: className = "" } = Astro.props
 
   navigator.serviceWorker.ready
     .then((registration) => {
-      return registration.pushManager
-        .getSubscription()
-        .then((subscription) => {
-          if (subscription) return subscription
+      return registration.pushManager.getSubscription().then((subscription) => {
+        if (subscription) return subscription
 
-          const vapidPublicKey = PUBLIC_KEY
-          const convertedVapidKey = urlBase64ToUint8Array(vapidPublicKey)
+        const vapidPublicKey = PUBLIC_KEY
+        const convertedVapidKey = urlBase64ToUint8Array(vapidPublicKey)
 
-          return registration.pushManager.subscribe({
-            userVisibleOnly: true,
-            applicationServerKey: convertedVapidKey,
-          })
+        return registration.pushManager.subscribe({
+          userVisibleOnly: true,
+          applicationServerKey: convertedVapidKey,
         })
+      })
     })
     .then(async (subscription) => {
-      const res = await fetch("/register", {
+      const res = await fetch("/api/register", {
         method: "post",
         headers: {
           "Content-type": "application/json",
         },
         body: JSON.stringify({
-          subscription: subscription,
+          subscription: subscription.toJSON(),
         }),
       })
 

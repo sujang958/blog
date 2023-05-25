@@ -12,6 +12,8 @@ datasource db {
 
 model Subscription {
   id       String    @id @default(auto()) @map("_id") @db.ObjectId
-  endpoint String
-  expirationTime Int
+  endpoint String    @unique
+  auth     String
+  p256dh   String
+  expirationTime Int?
 }
