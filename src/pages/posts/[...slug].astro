@@ -8,7 +8,8 @@ if (slug === undefined) throw new Error("Slug is required")
 
 const entry = await getEntryBySlug("post", slug)
 
-if (entry === undefined) return Astro.redirect("/404")
+if (entry === undefined) ___astro_return
+throw Astro.redirect("/404")
 
 const { data, render } = entry
 
