@@ -13,13 +13,12 @@ Generators and Iterable are two important concepts in JavaScript, which are used
 An Iterable is an object that can be iterated over using the `for...of` loop. An iterable object must have a method named `Symbol.iterator` that returns an iterator object. For example, the `Array` object is iterable because it has the `Symbol.iterator` method, which returns an iterator object that can be used to loop over the array.
 
 ```js
-const arr = [1, 2, 3, 4];
-const iterator = arr[Symbol.iterator]();
+const arr = [1, 2, 3, 4]
+const iterator = arr[Symbol.iterator]()
 for (const element of iterator) {
-  console.log(element);
+  console.log(element)
 }
 // Output: 1 2 3 4
-
 ```
 
 ## Generators
@@ -53,7 +52,6 @@ const iterator = generator()
 console.log(iterator.next().value) // input x
 console.log(iterator.next(4).value) // 6 (4 + 2) 4 goes to x and yield x + 2
 console.log(iterator.next(5).value) // 8 (5 + 3)
-
 ```
 
 ## Generators are iterable
@@ -104,11 +102,11 @@ const iterableObject = {
   length: 5,
 
   *[Symbol.iterator]() {
-    for(let i = 0; i < this.length; i++) {
-      yield i;
+    for (let i = 0; i < this.length; i++) {
+      yield i
     }
-  }
-};
+  },
+}
 
 console.log([...iterableObject]) // [0, 1, 2, 3, 4]
 ```
@@ -138,7 +136,7 @@ This method passes an error to a `yield` keyword.
 ```js
 function* generator() {
   yield 1
-	console.log("Not reachable log")
+  console.log("Not reachable log")
   yield 2
   return 3
 }
