@@ -1,0 +1,31 @@
+---
+import Layout from "@layouts/Layout.astro"
+---
+
+<Layout title="404: Page not found" class="py-0">
+  <main
+    class="flex h-screen flex-col-reverse items-center justify-center py-24 md:flex-row"
+  >
+    <div class="">
+      <p class="text-6xl font-bold">404: Page not found</p>
+      <div class="py-3"></div>
+      <p
+        class="break-words text-xl leading-tight text-gray-600 dark:text-gray-400"
+      >
+        The page you're looking for can't be found. How about going back to the
+        main page?
+      </p>
+      <div class="py-5"></div>
+      <a
+        href="/"
+        class="rounded-lg bg-neutral-900 px-4 py-2 font-medium text-white dark:bg-neutral-100 dark:text-neutral-900"
+        >Get directions</a
+      >
+    </div>
+    <img
+      src="/banana-crying-cat.gif"
+      alt="..."
+      class="w-full -scale-x-100 object-contain"
+    />
+  </main>
+</Layout>

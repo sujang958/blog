@@ -1,0 +1,2 @@
+export const PUBLIC_KEY =
+  "BI8X-KL06V2JkPjD9OExBJsphKe9uwsD2zj6tOuKnh1ULiGQoev3YijIQ-YEfYiN5anuDAVaO3ZBVdUxaMlBsdE"
