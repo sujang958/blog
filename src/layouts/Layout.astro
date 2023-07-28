@@ -76,11 +76,11 @@ const { title, class: className = "" } = Astro.props
     class="bg-white font-pretendard text-black selection:bg-black selection:text-white dark:bg-neutral-900 dark:text-white dark:selection:bg-white dark:selection:text-black"
   >
     <Header />
-    <div class="flex min-h-screen w-full flex-col items-center">
+    <main class="flex min-h-screen w-full flex-col items-center">
       <div class={`flex w-full max-w-4xl flex-col px-10 py-32 ${className}`}>
         <slot />
       </div>
-    </div>
+    </main>
     <Footer />
   </body>
 </html>
