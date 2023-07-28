@@ -9,7 +9,7 @@ const PER_PAGE = 5
 const CURRENT_PAGE = Number(Astro.url.searchParams.get("cursor")) ?? 1
 const MAX_PAGE = Math.ceil(posts.length / PER_PAGE)
 
-const start = ((CURRENT_PAGE - 1)) * PER_PAGE
+const start = (CURRENT_PAGE - 1) * PER_PAGE
 const end = start + PER_PAGE
 ---
 
