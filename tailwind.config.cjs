@@ -11,6 +11,11 @@ module.exports = {
           "Noto Sans KR",
           "sans-serif",
         ],
+        "intel-mono": [
+          "intelone-mono-font-family-regular",
+          "Consolas",
+          "sans-serif",
+        ],
       },
     },
   },
