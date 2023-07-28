@@ -17,7 +17,7 @@ const { Content } = await render()
     <img
       src={data.image}
       alt="The Blog Image"
-      class="h-64 rounded-lg bg-white object-contain p-8"
+      class="h-56 md:h-64 rounded-lg bg-white object-contain p-8"
     />
     <div class="py-8"></div>
     <p class="text-base md:text-xl">{data.category}</p>
@@ -38,9 +38,5 @@ const { Content } = await render()
     >
       <Content />
     </div>
-    <div class="py-6"></div>
-    <!-- <button >
-      Back to the list
-    </button> -->
   </div>
 </Layout>
