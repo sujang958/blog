@@ -4,6 +4,13 @@ import Layout from "@layouts/Layout.astro"
 import PostItem from "@components/postItem.svelte"
 
 const posts = await getCollection("post")
+
+const PER_PAGE = 5
+const CURRENT_PAGE = Number(Astro.url.searchParams.get("cursor")) ?? 1
+const MAX_PAGE = Math.ceil(posts.length / PER_PAGE)
+
+const start = (CURRENT_PAGE - 1) * PER_PAGE
+const end = start + PER_PAGE
 ---
 
 <Layout title="Home">
@@ -16,8 +23,49 @@ const posts = await getCollection("post")
   <div class="flex flex-col gap-y-16">
     {
       posts
+        .slice(start, end)
         .sort((a, b) => b.data.date - a.data.date)
         .map((post) => <PostItem post={post} />)
     }
+  </div>
+
+  <div class="flex flex-row items-center justify-between pt-24 pb-12">
+    <a
+      class=`${CURRENT_PAGE < 2 ? "invisible" : ""}`
+      href=`/?cursor=${CURRENT_PAGE - 1}`
+      ><svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="h-8 w-8 rounded-lg stroke-neutral-300 p-1.5 transition duration-200 hover:bg-white hover:stroke-black"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15.75 19.5L8.25 12l7.5-7.5"></path>
+      </svg>
+    </a>
+    <p class="text-lg font-medium text-neutral-300">
+      {CURRENT_PAGE} / {MAX_PAGE}
+    </p>
+    <a
+      class=`${CURRENT_PAGE >= MAX_PAGE ? "invisible" : ""}`
+      href=`/?cursor=${CURRENT_PAGE + 1}`
+      ><svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="h-8 w-8 rounded-lg stroke-neutral-300 p-1.5 transition duration-200 hover:bg-white hover:stroke-black"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+      </svg>
+    </a>
   </div>
 </Layout>

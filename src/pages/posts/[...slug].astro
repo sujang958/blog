@@ -3,15 +3,12 @@ import { getEntryBySlug } from "astro:content"
 import Layout from "@layouts/Layout.astro"
 
 const { slug } = Astro.params
-
-if (slug === undefined) throw new Error("Slug is required")
+if (!slug) throw new Error("Slug is required")
 
 const entry = await getEntryBySlug("post", slug)
-
-if (entry === undefined) return Astro.redirect("/404")
+if (!entry) return Astro.redirect("/404")
 
 const { data, render } = entry
-
 const { Content } = await render()
 ---
 
