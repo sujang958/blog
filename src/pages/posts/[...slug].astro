@@ -6,7 +6,7 @@ const { slug } = Astro.params
 if (!slug) throw new Error("Slug is required")
 
 const entry = await getEntryBySlug("post", slug)
-if (!entry) return Astro.redirect("/404")
+if (!entry) throw new Error("The post not found")
 
 const { data, render } = entry
 const { Content } = await render()
