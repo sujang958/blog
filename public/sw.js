@@ -7,7 +7,7 @@ self.addEventListener("install", (e) => {
       console.log("[Service Worker] Caching all: contentToChache")
 
       return cache.addAll(["/"])
-    })
+    }),
   )
 })
 
@@ -19,7 +19,7 @@ self.addEventListener("fetch", (e) => {
         fetch(e.request).then((response) => {
           return caches.open(cacheName).then((cache) => {
             console.log(
-              "[Service Worker] Caching new resource: " + e.request.url
+              "[Service Worker] Caching new resource: " + e.request.url,
             )
 
             cache.put(e.request, response.clone())
@@ -28,6 +28,6 @@ self.addEventListener("fetch", (e) => {
           })
         })
       )
-    })
+    }),
   )
 })

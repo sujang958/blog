@@ -73,66 +73,23 @@ const { title, class: className = "" } = Astro.props
     />
   </head>
   <body
-    class="bg-white font-pretendard text-black selection:bg-black selection:text-white dark:bg-neutral-900 dark:text-white dark:selection:bg-white dark:selection:text-black"
+    class="bg-white font-pretendard text-black selection:bg-black selection:text-white dark:bg-[#111] dark:text-white dark:selection:bg-white dark:selection:text-black"
   >
     <Header />
-    <div class="flex min-h-screen w-full flex-col items-center">
+    <main class="flex min-h-screen w-full flex-col items-center">
       <div class={`flex w-full max-w-4xl flex-col px-10 py-32 ${className}`}>
         <slot />
       </div>
-    </div>
+    </main>
     <Footer />
   </body>
 </html>
 
-<script>
-  import { PUBLIC_KEY } from "src/utils/webPush"
-
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("/sw.js")
+<style is:global>
+  @font-face {
+    font-family: 'intelone-mono-font-family-regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/intelone-mono-font-family-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
   }
-
-  function urlBase64ToUint8Array(base64String: string) {
-    var padding = "=".repeat((4 - (base64String.length % 4)) % 4)
-    var base64 = (base64String + padding).replace(/\-/g, "+").replace(/_/g, "/")
-
-    var rawData = window.atob(base64)
-    var outputArray = new Uint8Array(rawData.length)
-
-    for (var i = 0; i < rawData.length; ++i) {
-      outputArray[i] = rawData.charCodeAt(i)
-    }
-    return outputArray
-  }
-
-  navigator.serviceWorker.ready
-    .then((registration) => {
-      return registration.pushManager.getSubscription().then((subscription) => {
-        if (subscription) return subscription
-
-        const vapidPublicKey = PUBLIC_KEY
-        const convertedVapidKey = urlBase64ToUint8Array(vapidPublicKey)
-
-        return registration.pushManager.subscribe({
-          userVisibleOnly: true,
-          applicationServerKey: convertedVapidKey,
-        })
-      })
-    })
-    .then(async (subscription) => {
-      const res = await fetch("/api/register", {
-        method: "post",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({
-          subscription: subscription.toJSON(),
-        }),
-      })
-
-      console.log(await res.json())
-
-      const permission = await Notification.requestPermission()
-      console.log(permission == "granted")
-    })
-</script>
+</style>

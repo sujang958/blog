@@ -3,15 +3,12 @@ import { getEntryBySlug } from "astro:content"
 import Layout from "@layouts/Layout.astro"
 
 const { slug } = Astro.params
-
-if (slug === undefined) throw new Error("Slug is required")
+if (!slug) throw new Error("Slug is required")
 
 const entry = await getEntryBySlug("post", slug)
-
-if (entry === undefined) return Astro.redirect("/404")
+if (!entry) throw new Error("The post not found")
 
 const { data, render } = entry
-
 const { Content } = await render()
 ---
 
@@ -20,7 +17,7 @@ const { Content } = await render()
     <img
       src={data.image}
       alt="The Blog Image"
-      class="h-64 rounded-lg bg-white object-contain p-8"
+      class="h-56 md:h-64 rounded-lg bg-white object-contain p-8"
     />
     <div class="py-8"></div>
     <p class="text-base md:text-xl">{data.category}</p>
