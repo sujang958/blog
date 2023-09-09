@@ -5,6 +5,8 @@ import PostItem from "@components/postItem.svelte"
 
 const posts = await getCollection("post")
 
+posts.sort((a, b) => a.data.date - b.data.date).reverse()
+
 const PER_PAGE = 5
 const MAX_PAGE = Math.ceil(posts.length / PER_PAGE)
 
