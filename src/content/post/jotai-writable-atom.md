@@ -3,7 +3,7 @@ title: "Jotai only accepts WritableAtom"
 description: A fix for Jotai's TypeScript error
 category: TypeScript
 date: 1694271031026
-image: "https://storage.googleapis.com/candycode/jotai/jotai-mascot.png"
+image: "/images/jotai-typescript.png"
 ---
 
 ## The Problem
