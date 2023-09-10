@@ -224,6 +224,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
+"jotai-writable-atom.md": {
+	id: "jotai-writable-atom.md";
+  slug: "jotai-writable-atom";
+  body: string;
+  collection: "post";
+  data: InferEntrySchema<"post">
+} & { render(): Render[".md"] };
 "n-a-o-operators.md": {
 	id: "n-a-o-operators.md";
   slug: "n-a-o-operators";
