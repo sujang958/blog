@@ -68,7 +68,7 @@ const { Content } = await render()
 
       copyButton.addEventListener("click", () => {
         navigator.clipboard
-          .writeText(codeBlock.innerText)
+          .writeText(codeBlock.querySelector("code")?.innerText ?? "undefined")
           .then(() => notify("Copied"))
           .catch(() => notify("Error"))
       })
