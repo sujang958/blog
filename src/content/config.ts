@@ -10,6 +10,16 @@ const postCollection = defineCollection({
   }),
 })
 
+const hackingCollection = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    category: z.string(),
+    date: z.number(),
+  }),
+})
+
 export const collections = {
   post: postCollection,
+  hacking: hackingCollection,
 }
