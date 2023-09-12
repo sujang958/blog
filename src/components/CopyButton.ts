@@ -23,7 +23,7 @@ export const getCopyButton = (codeBlock: HTMLPreElement) => {
   copyButton.innerText = "Copy"
 
   copyButton.className =
-    "absolute right-1 top-1 dark:bg-gray-700 dark:text-white px-1.5 py-0.5 text-xs rounded"
+    "absolute right-1 top-1 bg-gray-700 text-white px-1.5 py-0.5 text-xs rounded"
 
   return copyButton
 }
