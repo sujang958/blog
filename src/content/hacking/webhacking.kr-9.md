@@ -15,7 +15,7 @@ _like()_ _operator_
 
 `like()` operator is the same as `=`.
 
-_database()_` function
+`_database()_` function
 
 This function returns the current database’s name.
 
