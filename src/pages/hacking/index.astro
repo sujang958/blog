@@ -6,7 +6,24 @@ const posts = await getCollection("hacking")
 ---
 
 <Layout title="Write-Ups by Sujang" class="font-intel-mono">
-  <p class="text-4xl">Posts about Hacking</p>
-  <div class="py-3"></div>
-  {posts.map((post) => <div>{post.data.title}</div>)}
+  <p class="text-4xl font-bold">Hacking Posts</p>
+  <div class="py-8"></div>
+  <section class="flex flex-col gap-y-4"></section>
+  {
+    posts.map(({ data, slug }) => (
+      <a
+        href={`/hacking/${slug}`}
+        class="flex flex-col py-2 gap-y-2 cursor-pointer relative after:absolute after:content-['>'] after:top-1/2 after:-left-12 after:text-lg after:opacity-0 hover:after:opacity-100 after:transform after:-translate-y-1/2"
+      >
+        <p class="text-base dark:text-neutral-400 text-neutral-600 w-min">
+          {data.category}
+        </p>
+        <p class="text-4xl -mt-1.5">{data.title}</p>
+        <p class="text-lg">{data.description}</p>
+        <p class="text-base mt-3 dark:text-neutral-400 text-neutral-600">
+          {new Date(data.date).toLocaleDateString("en-US")}
+        </p>
+      </a>
+    ))
+  }
 </Layout>

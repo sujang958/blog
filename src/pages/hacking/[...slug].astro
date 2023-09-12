@@ -1,0 +1,77 @@
+---
+import { getEntryBySlug } from "astro:content"
+import Layout from "@layouts/Layout.astro"
+
+const { slug } = Astro.params
+if (!slug) throw new Error("Slug is required")
+
+const entry = await getEntryBySlug("hacking", slug)
+if (!entry) throw new Error("The post not found")
+
+const { data, render } = entry
+const { Content } = await render()
+---
+
+<Layout title={data.title} class="font-intel-mono">
+  <div class="flex w-full max-w-2xl flex-col self-center py-16">
+    <p class="text-base md:text-xl">{data.category}</p>
+    <p class="mt-1 text-3xl font-bold md:text-5xl">{data.title}</p>
+    <p class="mt-4 text-sm md:text-base">
+      {Intl.DateTimeFormat("us-en", {}).format(new Date(Number(data.date)))}
+    </p>
+    <style is:inline>
+      .md-content code:not(pre code) {
+        color: #f95e54;
+        background-color: #0d1117;
+        position: relative;
+        padding: 0.2rem 0.3rem;
+        border-radius: 0.35rem;
+      }
+
+      .md-content pre.astro-code {
+        position: relative;
+      }
+    </style>
+    <div
+      class="md-content prose-base break-words py-16 prose-h1:font-bold prose-h2:font-semibold prose-h3:font-medium prose-a:underline prose-blockquote:border-l prose-blockquote:border-black prose-img:rounded-lg dark:prose-blockquote:border-white md:prose-lg"
+    >
+      <Content />
+    </div>
+  </div>
+</Layout>
+
+<script>
+  document
+    .querySelectorAll(".md-content pre.astro-code")
+    .forEach((codeBlock) => {
+      if (!(codeBlock instanceof HTMLPreElement)) return
+
+      const copyButton = document.createElement("button")
+
+      let pastTimeout: NodeJS.Timer
+
+      const notify = (text: string) => {
+        copyButton.innerText = text
+
+        if (pastTimeout) clearTimeout(pastTimeout)
+
+        pastTimeout = setTimeout(() => {
+          copyButton.innerText = "Copy"
+        }, 1500)
+      }
+
+      copyButton.addEventListener("click", () => {
+        navigator.clipboard
+          .writeText(codeBlock.querySelector("code")?.innerText ?? "undefined")
+          .then(() => notify("Copied"))
+          .catch(() => notify("Error"))
+      })
+
+      copyButton.innerText = "Copy"
+
+      copyButton.className =
+        "absolute right-1 top-1 dark:bg-gray-700 dark:text-white px-1.5 py-0.5 text-xs rounded"
+
+      codeBlock.appendChild(copyButton)
+    })
+</script>
