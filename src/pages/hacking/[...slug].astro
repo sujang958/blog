@@ -12,31 +12,38 @@ const { data, render } = entry
 const { Content } = await render()
 ---
 
-<Layout title={data.title} class="font-intel-mono">
-  <div class="flex w-full max-w-2xl flex-col self-center py-16">
-    <p class="text-base md:text-xl">{data.category}</p>
-    <p class="mt-1 text-3xl font-bold md:text-5xl">{data.title}</p>
-    <p class="mt-4 text-sm md:text-base">
-      {new Date(data.date).toLocaleDateString("en-US")}
-    </p>
-    <style is:inline>
-      .md-content code:not(pre code) {
-        color: #f95e54;
-        background-color: #0d1117;
-        position: relative;
-        padding: 0.2rem 0.3rem;
-        border-radius: 0.35rem;
-      }
+<Layout title={data.title} class="font-intel-mono max-w-[44rem]">
+  <a href="/hacking" class="mb-10 underline">../</a>
+  <p class="text-base md:text-lg">{data.category}</p>
+  <p class="mt-1 text-3xl font-bold md:text-4xl">{data.title}</p>
+  <p class="mt-4 text-sm md:text-base">
+    {new Date(data.date).toLocaleDateString("en-US")}
+  </p>
+  <style is:inline>
+    .dark .md-content code:not(pre code) {
+      color: #f95e54;
+      background-color: #0d1117;
+      position: relative;
+      padding: 0.15rem 0.3rem;
+      border-radius: 0.35rem;
+    }
 
-      .md-content pre.astro-code {
-        position: relative;
-      }
-    </style>
-    <div
-      class="md-content prose-base break-words py-16 prose-h1:font-bold prose-h2:font-semibold prose-h3:font-medium prose-a:underline prose-blockquote:border-l prose-blockquote:border-black prose-img:rounded-lg dark:prose-blockquote:border-white md:prose-lg"
-    >
-      <Content />
-    </div>
+    .md-content code:not(pre code) {
+      color: #fff;
+      background-color: #0d1117;
+      position: relative;
+      padding: 0.15rem 0.3rem;
+      border-radius: 0.35rem;
+    }
+
+    .md-content pre.astro-code {
+      position: relative;
+    }
+  </style>
+  <div
+    class="md-content prose-base break-words py-16 prose-h1:font-bold prose-h2:font-semibold prose-h3:font-medium prose-a:underline prose-blockquote:border-l prose-blockquote:border-black prose-img:rounded-lg dark:prose-blockquote:border-white md:prose-lg prose-li:list-decimal prose-li:list-inside font-pretendard"
+  >
+    <Content />
   </div>
 </Layout>
 
