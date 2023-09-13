@@ -1,10 +1,14 @@
-<script lang="ts">
-  import type { CollectionEntry } from "astro:content"
+---
+import type { CollectionEntry } from "astro:content"
 
-  export let post: CollectionEntry<"post">
+interface Props {
+  post: CollectionEntry<"post">
+}
 
-  const { data, slug } = post
-</script>
+const { post } = Astro.props
+
+const { data, slug } = post
+---
 
 <a
   href={`/posts/${slug}`}
