@@ -50,17 +50,17 @@
 
 {#if searchWindowShown}
   <div class="fixed bg-black/10 inset-0 flex flex-col items-center backdrop-blur-sm px-24">
-    <div class="flex flex-col my-24 max-w-xl w-full rounded-lg bg-neutral-800 px-2.5 py-2 overflow-auto" id="search-container">
+    <div class="flex flex-col my-24 max-w-xl w-full rounded-lg dark:bg-neutral-800 dark:text-white text-black bg-neutral-100 px-2.5 py-2 overflow-auto" id="search-container">
       <!-- svelte-ignore a11y-autofocus -->
-      <input type="text" class="rounded-lg bg-neutral-900" autofocus placeholder="Press / to focus" bind:value={query} bind:this={queryInput} >
+      <input type="text" class="rounded-lg bg-neutral-200 dark:bg-neutral-900 border-neutral-300" autofocus placeholder="Press / to focus" bind:value={query} bind:this={queryInput} >
       <div class="py-1"></div>
       <section class="flex flex-col gap-y-2 py-1">
-        <!-- TODO: solve tab prob and use matches to higlight matches -->
+        <!-- TODO: solve tab prob and use matches to higlight matches (like chakraui hightlight) -->
         {#each fuse.search(query) as result}
           <a href="/posts/{result.item.slug}" class="flex flex-col items-start p-2 cursor-pointer rounded-lg hover:bg-black/20">
-            <p class="text-sm text-neutral-300">{result.item.data.category}</p>
+            <p class="text-sm dark:text-neutral-300 text-neutral-600">{result.item.data.category}</p>
             <p class="text-xl font-bold">{result.item.data.title}</p>
-            <p class="mt-1.5 text-sm text-neutral-300">{(new Date(result.item.data.date)).toLocaleDateString("en-US")}</p>
+            <p class="mt-1.5 text-sm dark:text-neutral-300 text-neutral-600">{(new Date(result.item.data.date)).toLocaleDateString("en-US")}</p>
           </a>
         {/each}
         
