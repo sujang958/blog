@@ -168,16 +168,7 @@ declare module 'astro:content' {
 	>;
 
 	type ContentEntryMap = {
-		"hacking": {
-"webhacking.kr-9.md": {
-	id: "webhacking.kr-9.md";
-  slug: "webhackingkr-9";
-  body: string;
-  collection: "hacking";
-  data: InferEntrySchema<"hacking">
-} & { render(): Render[".md"] };
-};
-"post": {
+		"post": {
 "Promise-allSettled.md": {
 	id: "Promise-allSettled.md";
   slug: "promise-allsettled";
