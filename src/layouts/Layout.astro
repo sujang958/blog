@@ -1,5 +1,4 @@
 ---
-import type { CollectionEntry } from "astro:content"
 import Footer from "../components/Footer.astro"
 import Header from "../components/Header.astro"
 
@@ -9,6 +8,8 @@ export interface Props {
 }
 
 const { title, class: className = "" } = Astro.props
+
+Astro.response.headers.set('Cache-Control', 'public, max-age=3600')
 ---
 
 <!DOCTYPE html>
