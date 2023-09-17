@@ -16,5 +16,5 @@ export default defineConfig({
     }
   }), svelte(), AstroPWA()],
   output: "server",
-  adapter: vercel(),
+  adapter: vercel({ functionPerRoute: false }),
 });
