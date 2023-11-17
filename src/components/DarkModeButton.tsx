@@ -1,5 +1,5 @@
 import { component$, useSignal, useVisibleTask$, useTask$ } from "@builder.io/qwik";
-import { isBrowser } from "src/utils/qwik";
+import { isBrowser } from "@utils/qwik";
 
 const DARK_THEME_KEY = "darkTheme"
 
