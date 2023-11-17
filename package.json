@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@astrojs/svelte": "^4.0.2",
-    "@astrojs/tailwind": "^5.0.0",
+    "@astrojs/tailwind": "^5.0.2",
     "@astrojs/vercel": "^4.0.5",
     "astro": "^3.0.12",
     "fuse.js": "^6.6.2",

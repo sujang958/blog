@@ -1,10 +1,9 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel/serverless";
-
 import svelte from "@astrojs/svelte";
+import AstroPWA from "@vite-pwa/astro";
 
-import AstroPWA from "@vite-pwa/astro"
 
 // https://astro.build/config
 
@@ -16,5 +15,7 @@ export default defineConfig({
     }
   }), svelte(), AstroPWA()],
   output: "server",
-  adapter: vercel({ functionPerRoute: false }),
+  adapter: vercel({
+    functionPerRoute: false
+  })
 });
