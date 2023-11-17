@@ -1,5 +1,7 @@
 import { component$, useSignal, useVisibleTask$, useTask$ } from "@builder.io/qwik";
-import { isBrowser } from "@utils/qwik";
+
+
+const isBrowser = (() => typeof window !== "undefined" && typeof HTMLElement !== "undefined" && !!window.document && String(HTMLElement).includes("[native code]"))
 
 const DARK_THEME_KEY = "darkTheme"
 
@@ -7,7 +9,7 @@ export const DarkModeButton = component$(() => {
   const isDarkMode = useSignal(true);
 
   useTask$(() => {
-    if (!isBrowser) return
+    if (!isBrowser()) return
 
     isDarkMode.value = localStorage.getItem(DARK_THEME_KEY) == "dark";
   }, { eagerness: "load" })

@@ -18,5 +18,12 @@ export default defineConfig({
   output: "server",
   adapter: vercel({
     functionPerRoute: false
-  })
+  }),
+  vite: {
+    build: {
+      rollupOptions: {
+        external: "./src/**/*"
+      }
+    }
+  }
 });
