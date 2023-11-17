@@ -6,6 +6,7 @@ import AstroPWA from "@vite-pwa/astro";
 
 
 // https://astro.build/config
+import qwikdev from "@qwikdev/astro";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,7 +14,7 @@ export default defineConfig({
     config: {
       applyBaseStyles: true
     }
-  }), svelte(), AstroPWA()],
+  }), svelte(), AstroPWA(), qwikdev()],
   output: "server",
   adapter: vercel({
     functionPerRoute: false
