@@ -3,7 +3,7 @@ title: AbortController
 description: how to cancel your web requests.
 category: JavaScript
 date: 1701170294464
-image: "/images/abort.jpg"
+image: "/images/abort-it.png"
 ---
 
 Let&#039;s say you find yourself in a specific situation: a user sends a request to an external HTTP server and then immediately navigates back in your SPA application. After the user moves on, the data coming from that request is not needed, but the request is still sent to the server. This is an obvious waste of resources. However, it doesn&#039;t affect the user&#039;s screen, so it&#039;s not a big deal. 
