@@ -15,33 +15,33 @@ const { data, slug } = post
   class="flex flex-col md:flex-row justify-center md:space-x-16 cursor-pointer items-center group"
 >
   <div
-    class="flex-none w-full bg-white md:w-auto rounded-lg overflow-hidden p-0 grid place-items-center"
+    class="flex-none w-full md:w-auto rounded-lg overflow-hidden grid place-items-center"
   >
     <img
       alt="The Thumbnail"
       src={data.image}
       loading="lazy"
-      class="object-contain h-48 rounded-lg w-full"
+      class="object-cover h-64 md:h-48 rounded-xl w-full"
     />
   </div>
   <div class="flex-1 w-full flex flex-col justify-between py-2 md:mt-0 mt-8">
     <div>
       <p
-        class="text-lg md:text-xl text-black/70 dark:text-white/70 font-medium"
+        class="text-lg md:text-lg text-black/70 dark:text-white/70 font-medium"
       >
         {data.category}
       </p>
       <p
-        class="text-3xl md:text-5xl font-bold group-hover:text-blue-500 transition duration-300"
+        class="text-3xl md:text-4xl font-bold group-hover:text-blue-500 transition duration-300"
       >
         {data.title}
       </p>
-      <p class="text-base md:text-xl font-medium py-3">
+      <p class="text-base md:text-lg py-3">
         {data.description}
       </p>
     </div>
     <p
-      class="mt-2 text-sm md:text-lg text-black/70 dark:text-white/70 font-medium"
+      class="mt-2 text-sm text-black/70 dark:text-white/70 font-medium"
     >
       {Intl.DateTimeFormat("us-en", {}).format(new Date(data.date))}
     </p>

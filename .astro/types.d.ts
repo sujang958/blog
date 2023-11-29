@@ -182,6 +182,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
+"abort-controller.md": {
+	id: "abort-controller.md";
+  slug: "abort-controller";
+  body: string;
+  collection: "post";
+  data: InferEntrySchema<"post">
+} & { render(): Render[".md"] };
 "closure.md": {
 	id: "closure.md";
   slug: "closure";
