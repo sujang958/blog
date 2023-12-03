@@ -1,13 +1,28 @@
 ---
+import Seo from "@components/Seo.astro"
 import Footer from "../components/Footer.astro"
 import Header from "../components/Header.astro"
+
+type SeoProps = {
+  title: string
+  description?: string
+  url: string
+  image?: {
+    src: string
+    type?: string
+    width?: number
+    height?: number
+    alt: string
+  }
+}
 
 export interface Props {
   title: string
   class?: string
+  seo?: SeoProps
 }
 
-const { title, class: className = "" } = Astro.props
+const { title, class: className = "", seo } = Astro.props
 
 Astro.response.headers.set('Cache-Control', 'public, max-age=3600')
 ---
@@ -17,6 +32,7 @@ Astro.response.headers.set('Cache-Control', 'public, max-age=3600')
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    {seo && <Seo {...seo}  /> }
     <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
     <meta name="generator" content={Astro.generator} />
     <link
