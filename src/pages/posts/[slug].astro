@@ -1,6 +1,7 @@
 ---
 import { getEntryBySlug } from "astro:content"
 import Layout from "@layouts/Layout.astro"
+import Seo from "@components/Seo.astro"
 
 const { slug } = Astro.params
 if (!slug) throw new Error("Slug is required")
@@ -12,7 +13,7 @@ const { data, render } = entry
 const { Content } = await render()
 ---
 
-<Layout title={data.title}>
+<Layout title={data.title} seo={{title:data.title, url:`${import.meta.env.SITE}/posts/${slug}`}}>
   <div class="flex w-full max-w-2xl flex-col self-center py-16">
     <img
       src={data.image}
@@ -23,6 +24,7 @@ const { Content } = await render()
     <p class="text-base md:text-xl">{data.category}</p>
     <p class="mt-1 text-3xl font-bold md:text-5xl">{data.title}</p>
     <p class="mt-4 text-sm md:text-base">
+      
       {Intl.DateTimeFormat("us-en", {}).format(new Date(Number(data.date)))}
     </p>
     <style is:inline>

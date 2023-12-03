@@ -1,29 +1,34 @@
-import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
-import vercel from "@astrojs/vercel/serverless";
-import svelte from "@astrojs/svelte";
-import AstroPWA from "@vite-pwa/astro";
-
+import { defineConfig } from "astro/config"
+import tailwind from "@astrojs/tailwind"
+import vercel from "@astrojs/vercel/serverless"
+import svelte from "@astrojs/svelte"
+import AstroPWA from "@vite-pwa/astro"
 
 // https://astro.build/config
-import qwikdev from "@qwikdev/astro";
+import qwikdev from "@qwikdev/astro"
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind({
-    config: {
-      applyBaseStyles: true
-    }
-  }), svelte(), AstroPWA(), qwikdev()],
+  site: "https://blog.sujang.xyz",
+  integrations: [
+    tailwind({
+      config: {
+        applyBaseStyles: true,
+      },
+    }),
+    svelte(),
+    AstroPWA(),
+    qwikdev(),
+  ],
   output: "server",
   adapter: vercel({
-    functionPerRoute: false
+    functionPerRoute: false,
   }),
   vite: {
     build: {
       rollupOptions: {
-        external: "./src/**/*"
-      }
-    }
-  }
-});
+        external: "./src/**/*",
+      },
+    },
+  },
+})

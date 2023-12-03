@@ -1,0 +1,49 @@
+---
+export interface Props {
+  title: string
+  description?: string
+  url: string
+  image?: {
+    src: string
+    type?: string
+    width?: number
+    height?: number
+    alt: string
+  }
+}
+
+const {title, url, description, image} = Astro.props
+---
+
+<!-- SEO -->
+<link rel="canonical" href={url} />
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="Blog of sujang958" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={url} />
+{image && (
+<meta property="og:image" content={image.src} />
+<meta property="og:image:url" content={image.src} />
+<meta
+  property="og:image:secure_url"
+  content={image.src}
+/>
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content={`${image.width ?? 1200}`} />
+<meta property="og:image:height" content={`${image.height ?? 600}`} />
+<meta property="og:image:alt" content={image.alt} />
+)}
+
+
+<!-- Twitter -->
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:card" content="summary_large_image" />
+{image && (
+  <meta name="twitter:image" content={image.src} />
+  <meta name="twitter:image:alt" content={title} />
+)}
+
+<meta name="twitter:domain" content={import.meta.env.SITE} />
