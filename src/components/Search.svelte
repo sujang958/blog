@@ -49,7 +49,7 @@
 </button>
 
 {#if searchWindowShown}
-  <div class="fixed bg-black/10 inset-0 flex flex-col items-center backdrop-blur-sm px-10 md:px-24">
+  <div class="fixed bg-black/10 inset-0 flex flex-col items-center backdrop-blur-sm px-10 md:px-24 w-full h-screen">
     <div class="flex flex-col my-24 max-w-xl w-full rounded-lg dark:bg-neutral-800 dark:text-white text-black bg-neutral-100 px-2.5 py-2 overflow-auto relative" id="search-container">
       <!-- svelte-ignore a11y-autofocus -->
       <input type="text" class="rounded-lg bg-neutral-200 dark:bg-neutral-900 border-neutral-300 sticky top-0" autofocus placeholder="Press / to focus" bind:value={query} bind:this={queryInput} >
