@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "node node_modules/esbuild/install.js && astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "sync": "astro sync",
     "astro": "astro",
