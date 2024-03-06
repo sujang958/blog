@@ -13,6 +13,9 @@ dependencies:
   '@astrojs/vercel':
     specifier: ^7.3.5
     version: 7.3.5(astro@4.4.12)
+  '@builder.io/qwik':
+    specifier: ^1.5.0
+    version: 1.5.0(undici@6.7.0)
   '@qwikdev/astro':
     specifier: ^0.1.16
     version: 0.1.16(@builder.io/qwik@1.5.0)
