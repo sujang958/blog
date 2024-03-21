@@ -1,30 +1,38 @@
 ---
-import { getEntryBySlug } from "astro:content"
+import { getCollection } from "astro:content"
 import Layout from "@layouts/Layout.astro"
-import Seo from "@components/Seo.astro"
+// TODO: import Seo from "@components/Seo.astro"
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("post")
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }))
+}
 
 const { slug } = Astro.params
 if (!slug) throw new Error("Slug is required")
 
-const entry = await getEntryBySlug("post", slug)
-if (!entry) throw new Error("The post not found")
-
+const { entry } = Astro.props
 const { data, render } = entry
 const { Content } = await render()
 ---
 
-<Layout title={data.title} seo={{title:data.title, url:`${import.meta.env.SITE}/posts/${slug}`}}>
+<Layout
+  title={data.title}
+  seo={{ title: data.title, url: `${import.meta.env.SITE}/posts/${slug}` }}
+>
   <div class="flex w-full max-w-2xl flex-col self-center py-16">
     <img
       src={data.image}
       alt="The Blog Image"
-      class="h-56 md:h-64 rounded-lg bg-white object-contain p-8"
+      class="h-56 rounded-lg bg-white object-contain p-8 md:h-64"
     />
     <div class="py-8"></div>
     <p class="text-base md:text-xl">{data.category}</p>
     <p class="mt-1 text-3xl font-bold md:text-5xl">{data.title}</p>
     <p class="mt-4 text-sm md:text-base">
-      
       {Intl.DateTimeFormat("us-en", {}).format(new Date(Number(data.date)))}
     </p>
     <style is:inline>
@@ -41,15 +49,15 @@ const { Content } = await render()
       }
     </style>
     <div
-      class="md-content prose-base break-words py-16 prose-h1:font-bold prose-h2:font-semibold prose-h3:font-medium prose-a:underline prose-blockquote:border-l prose-blockquote:border-black prose-img:rounded-lg dark:prose-blockquote:border-white md:prose-lg"
+      class="md-content prose-base break-words py-16 md:prose-lg prose-h1:font-bold prose-h2:font-semibold prose-h3:font-medium prose-a:underline prose-blockquote:border-l prose-blockquote:border-black prose-img:rounded-lg dark:prose-blockquote:border-white"
     >
       <Content />
     </div>
   </div>
 </Layout>
 
-<script>
+<!-- TODO: POSTPONED <script>
   import { attachCopyButtons } from "@components/CopyButton"
 
   attachCopyButtons(".md-content pre.astro-code")
-</script>
+</script> -->

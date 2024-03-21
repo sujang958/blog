@@ -1,5 +1,6 @@
 ---
 import Seo from "@components/Seo.astro"
+import SearchWindow from "../components/SearchWindow.svelte"
 import Footer from "../components/Footer.astro"
 import Header from "../components/Header.astro"
 
@@ -24,15 +25,15 @@ export interface Props {
 
 const { title, class: className = "", seo } = Astro.props
 
-Astro.response.headers.set('Cache-Control', 'public, max-age=3600')
+Astro.response.headers.set("Cache-Control", "public, max-age=3600")
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    {seo && <Seo {...seo}  /> }
+    {seo && <Seo {...seo} />}
     <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
     <meta name="generator" content={Astro.generator} />
     <link
@@ -93,22 +94,14 @@ Astro.response.headers.set('Cache-Control', 'public, max-age=3600')
   <body
     class="bg-white font-pretendard text-black selection:bg-black selection:text-white dark:bg-[#111] dark:text-white dark:selection:bg-white dark:selection:text-black"
   >
+    <SearchWindow client:load />
+
     <Header />
     <main class="flex min-h-screen w-full flex-col items-center">
-      <div class={`flex w-full max-w-4xl flex-col px-10 py-32 ${className}`}>
+      <div class={`flex w-full max-w-4xl flex-col px-12 py-32 ${className}`}>
         <slot />
       </div>
     </main>
     <Footer />
   </body>
 </html>
-
-<style is:global>
-  @font-face {
-    font-family: "intelone-mono-font-family-regular";
-    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/intelone-mono-font-family-regular.woff2")
-      format("woff2");
-    font-weight: 400;
-    font-style: normal;
-  }
-</style>

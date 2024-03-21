@@ -14,8 +14,8 @@ const _CURRENT_PAGE = parseInt(Astro.url.searchParams.get("cursor") ?? "1")
 const CURRENT_PAGE = isNaN(_CURRENT_PAGE)
   ? 1
   : _CURRENT_PAGE < 1
-  ? 1
-  : _CURRENT_PAGE
+    ? 1
+    : _CURRENT_PAGE
 
 const start = (CURRENT_PAGE - 1) * PER_PAGE
 const end = start + PER_PAGE
@@ -37,7 +37,7 @@ const end = start + PER_PAGE
     }
   </div>
 
-  <div class="flex flex-row items-center justify-between pt-24 pb-12">
+  <div class="flex flex-row items-center justify-between pb-12 pt-24">
     <a
       class=`${CURRENT_PAGE < 2 ? "invisible" : ""}`
       href=`/?cursor=${CURRENT_PAGE - 1}`

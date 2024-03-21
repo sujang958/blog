@@ -1,15 +1,23 @@
 ---
 // import DarkModeButton from "./DarkModeButton.svelte"
-import { DarkModeButton } from "./DarkModeButton.tsx";
+import { DarkModeButton } from "./DarkModeButton.tsx"
 import Search from "./Search.svelte"
 ---
 
 <header
-  class="fixed top-0 z-50 flex w-full flex-col items-center justify-center bg-neutral-100 px-2 py-3 md:py-3.5 shadow-md dark:bg-[#111]"
+  class="fixed top-0 z-40 flex w-full flex-col items-center justify-center px-6 py-3 md:py-4"
 >
-  <div class="flex w-full max-w-4xl flex-row items-center justify-between px-4">
+  <div
+    class="flex w-full max-w-4xl flex-row items-center justify-between rounded-3xl bg-neutral-100/50 px-4 py-2.5 text-black backdrop-blur-md dark:bg-black/70 dark:text-white"
+  >
     <div class="flex flex-row items-center gap-x-3">
-      <a href="/" class="text-lg font-intel-mono">sujang.blog</a>
+      <a href="/" draggable="false">
+        <img
+          src="/popcat.jpg"
+          alt="Blog"
+          class="h-7 rounded-xl object-contain"
+        />
+      </a>
     </div>
     <div class="flex flex-row items-center gap-x-6">
       <Search client:load />
@@ -23,7 +31,7 @@ import Search from "./Search.svelte"
           ></path>
         </svg>
       </a>
-     <DarkModeButton />
+      <DarkModeButton />
     </div>
   </div>
 </header>

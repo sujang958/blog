@@ -12,37 +12,39 @@ const { data, slug } = post
 
 <a
   href={`/posts/${slug}`}
-  class="flex flex-col md:flex-row justify-center md:space-x-16 cursor-pointer items-center group"
+  class="group flex cursor-pointer flex-col items-center justify-center md:flex-row md:space-x-16"
 >
   <div
-    class="flex-none w-full md:w-auto rounded-lg overflow-hidden grid place-items-center"
+    class="grid w-full flex-none place-items-center overflow-hidden rounded-lg md:w-auto"
   >
-    <img
-      alt="The Thumbnail"
-      src={data.image}
-      loading="lazy"
-      class="object-cover h-64 md:h-48 rounded-xl w-full"
-    />
+    <div class="w-full relative">
+      <img
+        alt="The Thumbnail"
+        src={data.image}
+        loading="lazy"
+        class="h-48 w-full z-20 rounded-xl bg-white object-contain"
+      />
+    </div>
   </div>
-  <div class="flex-1 w-full flex flex-col justify-between py-2 md:mt-0 mt-8">
+  <div
+    class="mt-8 flex w-full flex-1 flex-col justify-between gap-y-1 py-2 md:mt-0"
+  >
     <div>
       <p
-        class="text-lg md:text-lg text-black/70 dark:text-white/70 font-medium"
+        class="text-lg font-medium text-black/70 dark:text-white/70 md:text-lg"
       >
         {data.category}
       </p>
       <p
-        class="text-3xl md:text-4xl font-bold group-hover:text-blue-500 transition duration-300"
+        class="text-3xl font-bold transition duration-300 group-hover:text-blue-500 md:text-4xl"
       >
         {data.title}
       </p>
-      <p class="text-base md:text-lg py-3">
+      <p class="py-3 text-base md:text-lg">
         {data.description}
       </p>
     </div>
-    <p
-      class="mt-2 text-sm text-black/70 dark:text-white/70 font-medium"
-    >
+    <p class="mt-2 text-sm font-medium text-black/70 dark:text-white/70">
       {Intl.DateTimeFormat("us-en", {}).format(new Date(data.date))}
     </p>
   </div>

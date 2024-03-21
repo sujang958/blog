@@ -20,10 +20,10 @@ export default defineConfig({
     AstroPWA(),
     qwikdev(),
   ],
-  output: "server",
-  adapter: vercel({
-    functionPerRoute: false,
-  }),
+  output: "static",
+  // adapter: vercel({
+  //   functionPerRoute: false,
+  // }),
   vite: {
     build: {
       rollupOptions: {
