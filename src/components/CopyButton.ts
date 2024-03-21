@@ -1,7 +1,7 @@
 export const getCopyButton = (codeBlock: HTMLPreElement) => {
   const copyButton = document.createElement("button")
 
-  let pastTimeout: NodeJS.Timer
+  let pastTimeout: any
 
   const notify = (text: string) => {
     copyButton.innerText = text
@@ -23,7 +23,7 @@ export const getCopyButton = (codeBlock: HTMLPreElement) => {
   copyButton.innerText = "Copy"
 
   copyButton.className =
-    "absolute right-1 top-1 bg-gray-700 text-white px-1.5 py-0.5 text-xs rounded"
+    "sticky right-1 top-1 bg-gray-700 text-white px-1.5 py-0.5 text-xs rounded"
 
   return copyButton
 }

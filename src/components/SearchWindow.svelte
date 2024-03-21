@@ -47,7 +47,7 @@
     : 'hidden'}"
 >
   <div
-    class="relative my-24 flex w-full max-w-xl flex-col overflow-auto rounded-lg bg-neutral-100 px-2.5 overscroll-none py-2 text-black dark:bg-neutral-800 dark:text-white"
+    class="relative my-24 flex w-full max-w-xl flex-col overflow-auto overscroll-none rounded-lg bg-neutral-100 px-2.5 py-2 text-black dark:bg-neutral-800 dark:text-white"
     id="search-container"
   >
     <!-- svelte-ignore a11y-autofocus -->

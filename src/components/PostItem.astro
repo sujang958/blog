@@ -17,14 +17,18 @@ const { data, slug } = post
   <div
     class="grid w-full flex-none place-items-center overflow-hidden rounded-lg md:w-auto"
   >
-    <img
-      alt="The Thumbnail"
-      src={data.image}
-      loading="lazy"
-      class="h-64 w-full rounded-xl object-cover md:h-48"
-    />
+    <div class="w-full relative">
+      <img
+        alt="The Thumbnail"
+        src={data.image}
+        loading="lazy"
+        class="h-48 w-full z-20 rounded-xl bg-white object-contain"
+      />
+    </div>
   </div>
-  <div class="mt-8 flex w-full flex-1 flex-col justify-between py-2 md:mt-0">
+  <div
+    class="mt-8 flex w-full flex-1 flex-col justify-between gap-y-1 py-2 md:mt-0"
+  >
     <div>
       <p
         class="text-lg font-medium text-black/70 dark:text-white/70 md:text-lg"

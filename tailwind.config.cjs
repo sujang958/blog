@@ -2,6 +2,7 @@
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   darkMode: "class",
+  safelist: ["sticky"],
   theme: {
     extend: {
       fontFamily: {
@@ -9,11 +10,6 @@ module.exports = {
           "Pretendard Variable",
           "-apple-system",
           "Noto Sans KR",
-          "sans-serif",
-        ],
-        "intel-mono": [
-          "intelone-mono-font-family-regular",
-          "Consolas",
           "sans-serif",
         ],
       },

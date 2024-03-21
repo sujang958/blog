@@ -4,17 +4,17 @@ import Layout from "@layouts/Layout.astro"
 // TODO: import Seo from "@components/Seo.astro"
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('post');
-  return blogEntries.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
-  }));
+  const blogEntries = await getCollection("post")
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }))
 }
 
 const { slug } = Astro.params
 if (!slug) throw new Error("Slug is required")
 
-
-const {entry} = Astro.props
+const { entry } = Astro.props
 const { data, render } = entry
 const { Content } = await render()
 ---
@@ -49,15 +49,15 @@ const { Content } = await render()
       }
     </style>
     <div
-      class="md-content prose-base break-words py-16 prose-h1:font-bold prose-h2:font-semibold prose-h3:font-medium prose-a:underline prose-blockquote:border-l prose-blockquote:border-black prose-img:rounded-lg dark:prose-blockquote:border-white md:prose-lg"
+      class="md-content prose-base break-words py-16 md:prose-lg prose-h1:font-bold prose-h2:font-semibold prose-h3:font-medium prose-a:underline prose-blockquote:border-l prose-blockquote:border-black prose-img:rounded-lg dark:prose-blockquote:border-white"
     >
       <Content />
     </div>
   </div>
 </Layout>
 
-<script>
+<!-- TODO: POSTPONED <script>
   import { attachCopyButtons } from "@components/CopyButton"
 
   attachCopyButtons(".md-content pre.astro-code")
-</script>
+</script> -->
