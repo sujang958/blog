@@ -13,18 +13,20 @@ const { data, render } = entry
 const { Content } = await render()
 ---
 
-<Layout title={data.title} seo={{title:data.title, url:`${import.meta.env.SITE}/posts/${slug}`}}>
+<Layout
+  title={data.title}
+  seo={{ title: data.title, url: `${import.meta.env.SITE}/posts/${slug}` }}
+>
   <div class="flex w-full max-w-2xl flex-col self-center py-16">
     <img
       src={data.image}
       alt="The Blog Image"
-      class="h-56 md:h-64 rounded-lg bg-white object-contain p-8"
+      class="h-56 rounded-lg bg-white object-contain p-8 md:h-64"
     />
     <div class="py-8"></div>
     <p class="text-base md:text-xl">{data.category}</p>
     <p class="mt-1 text-3xl font-bold md:text-5xl">{data.title}</p>
     <p class="mt-4 text-sm md:text-base">
-      
       {Intl.DateTimeFormat("us-en", {}).format(new Date(Number(data.date)))}
     </p>
     <style is:inline>

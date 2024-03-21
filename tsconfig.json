@@ -4,6 +4,7 @@
     "jsx": "react-jsx",
     "jsxImportSource": "@builder.io/qwik",
     "strictNullChecks": true,
+    "allowJs": true,
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
