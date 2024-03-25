@@ -19,6 +19,7 @@ export default defineConfig({
     svelte(),
     AstroPWA(),
     qwikdev(),
+    vercel({ functionPerRoute: false }),
   ],
   output: "hybrid",
   // adapter: vercel({
