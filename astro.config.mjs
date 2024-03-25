@@ -20,7 +20,7 @@ export default defineConfig({
     AstroPWA(),
     qwikdev(),
   ],
-  output: "static",
+  output: "hybrid",
   // adapter: vercel({
   //   functionPerRoute: false,
   // }),
