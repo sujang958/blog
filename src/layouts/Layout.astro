@@ -3,6 +3,7 @@ import Seo from "@components/Seo.astro"
 import SearchWindow from "../components/SearchWindow.svelte"
 import Footer from "../components/Footer.astro"
 import Header from "../components/Header.astro"
+import { ViewTransitions } from "astro:transitions"
 
 type SeoProps = {
   title: string
@@ -31,6 +32,7 @@ Astro.response.headers.set("Cache-Control", "public, max-age=3600")
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
+    <ViewTransitions />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     {seo && <Seo {...seo} />}
