@@ -1,7 +1,6 @@
 ---
-// import DarkModeButton from "./DarkModeButton.svelte"
-import { DarkModeButton } from "./DarkModeButton.tsx"
 import Search from "./Search.svelte"
+import DarkModeButton from "./DarkModeButton.svelte"
 ---
 
 <header
@@ -31,7 +30,7 @@ import Search from "./Search.svelte"
           ></path>
         </svg>
       </a>
-      <DarkModeButton />
+      <DarkModeButton client:load />
     </div>
   </div>
 </header>
