@@ -30,9 +30,9 @@ const { Content } = await render()
       class="h-56 rounded-lg bg-white object-contain p-8 md:h-64"
     />
     <div class="py-8"></div>
-    <p class="text-base md:text-xl">{data.category}</p>
-    <p class="mt-1 text-3xl font-bold md:text-5xl">{data.title}</p>
-    <p class="mt-4 text-sm md:text-base">
+    <p class="text-base md:text-xl text-neutral-600 dark:text-neutral-400">{data.category}</p>
+    <p class="mt-2 text-3xl font-bold md:text-5xl">{data.title}</p>
+    <p class="mt-6 text-sm md:text-base">
       {Intl.DateTimeFormat("us-en", {}).format(new Date(Number(data.date)))}
     </p>
     <style is:inline>
