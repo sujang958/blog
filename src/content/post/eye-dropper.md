@@ -3,7 +3,7 @@ title: Picking colors straight on the browser
 description: Eye Dropper API
 category: Web
 date: 1719913968533
-image: "/images/core_web_vitals.png"
+image: "/images/dropper-icon.png"
 ---
 
 ## Eye Dropper API
@@ -18,7 +18,7 @@ eyeDropper.open().then(color => {
 })
 ```
 
-When the `open` method is called, a user will get a color dropper like this.
+When the `open` method is called, a user will get a dropper like this.
 
 ![Dropper](/images/dropper.png)
 
