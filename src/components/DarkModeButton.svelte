@@ -3,7 +3,7 @@
 
   dark.subscribe((dark) => {
     if (globalThis?.document)
-      document?.documentElement.classList[dark ? "add" : "remove"]("dark")
+      document.documentElement.classList[dark ? "add" : "remove"]("dark")
   })
 </script>
 

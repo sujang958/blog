@@ -39,6 +39,11 @@
   })
 
   $: fuse.setCollection(posts)
+
+  searchWindowShown.subscribe((shown) => {
+    console.log(shown, queryInput)
+    if (shown) setTimeout(() => queryInput.focus(), 1)
+  })
 </script>
 
 <div
@@ -50,11 +55,9 @@
     class="relative my-24 flex w-full max-w-xl flex-col overflow-auto overscroll-none rounded-lg bg-neutral-100 px-2.5 py-2 text-black dark:bg-neutral-800 dark:text-white"
     id="search-container"
   >
-    <!-- svelte-ignore a11y-autofocus -->
     <input
       type="text"
       class="sticky top-0 rounded-lg border-neutral-300 bg-neutral-200 dark:bg-neutral-900"
-      autofocus
       placeholder="Press / to focus"
       bind:value={query}
       bind:this={queryInput}
