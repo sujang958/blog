@@ -28,8 +28,6 @@ And the output will be like this
 "Picked color: {sRGBHex: '#6cb8ff'}"
 ```
 
-I got some cool idea for a game using this api (ill post that later)
-
 ## Limitations
 
 Since the Eye Dropper API is an expermiental API, it is not widely supported for now. Also, for the security, you can't call the `open` method without any user action (like the Clipboard API).

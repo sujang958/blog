@@ -94,13 +94,13 @@ Astro.response.headers.set("Cache-Control", "public, max-age=3600")
     />
   </head>
   <body
-    class="bg-white font-pretendard text-black transition-colors duration-100 selection:bg-black selection:text-white dark:bg-neutral-900 dark:text-white dark:selection:bg-white dark:selection:text-black"
+    class="bg-white font-pretendard text-black transition-colors duration-100 selection:bg-black selection:text-white dark:bg-neutral-950 dark:text-white dark:selection:bg-white dark:selection:text-black"
   >
     <SearchWindow client:load />
 
     <Header />
     <main class="flex min-h-screen w-full flex-col items-center">
-      <div class={`flex w-full max-w-4xl flex-col px-12 py-32 ${className}`}>
+      <div class={`flex w-full max-w-4xl flex-col px-8 md:px-12 py-32 ${className}`}>
         <slot />
       </div>
     </main>
