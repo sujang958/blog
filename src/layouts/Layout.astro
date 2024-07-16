@@ -32,7 +32,7 @@ Astro.response.headers.set("Cache-Control", "public, max-age=3600")
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
-    <ViewTransitions />
+    <!-- <ViewTransitions /> -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     {seo && <Seo {...seo} />}
@@ -92,6 +92,16 @@ Astro.response.headers.set("Cache-Control", "public, max-age=3600")
       name="apple-mobile-web-app-status-bar-style"
       content="black-translucent"
     />
+
+    <script is:inline>
+      localStorage.dark ??= String(
+        window.matchMedia("(prefers-color-scheme: dark)").matches,
+      )
+
+      if (localStorage.dark == "true")
+        document.documentElement.classList.add("dark")
+      else document.documentElement.classList.remove("dark")
+    </script>
   </head>
   <body
     class="bg-white font-pretendard text-black transition-colors duration-100 selection:bg-black selection:text-white dark:bg-neutral-950 dark:text-white dark:selection:bg-white dark:selection:text-black"
@@ -100,7 +110,9 @@ Astro.response.headers.set("Cache-Control", "public, max-age=3600")
 
     <Header />
     <main class="flex min-h-screen w-full flex-col items-center">
-      <div class={`flex w-full max-w-4xl flex-col px-8 md:px-12 py-32 ${className}`}>
+      <div
+        class={`flex w-full max-w-4xl flex-col px-8 md:px-12 py-32 ${className}`}
+      >
         <slot />
       </div>
     </main>
