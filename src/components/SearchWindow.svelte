@@ -41,7 +41,6 @@
   $: fuse.setCollection(posts)
 
   searchWindowShown.subscribe((shown) => {
-    console.log(shown, queryInput)
     if (shown) setTimeout(() => queryInput.focus(), 1)
   })
 </script>
