@@ -182,6 +182,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
+"greedy-vs-brute-force.md": {
+	id: "greedy-vs-brute-force.md";
+  slug: "greedy-vs-brute-force";
+  body: string;
+  collection: "post";
+  data: InferEntrySchema<"post">
+} & { render(): Render[".md"] };
 "jotai-writable-atom.md": {
 	id: "jotai-writable-atom.md";
   slug: "jotai-writable-atom";
@@ -220,5 +227,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	export type ContentConfig = typeof import("./../src/content/config.js");
+	export type ContentConfig = typeof import("../src/content/config.js");
 }
