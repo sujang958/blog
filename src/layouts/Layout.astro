@@ -3,7 +3,8 @@ import Seo from "@components/Seo.astro"
 import SearchWindow from "../components/SearchWindow.svelte"
 import Footer from "../components/Footer.astro"
 import Header from "../components/Header.astro"
-import { ViewTransitions } from "astro:transitions"
+
+import { getCollection } from "astro:content"
 
 type SeoProps = {
   title: string
@@ -23,6 +24,8 @@ export interface Props {
   class?: string
   seo?: SeoProps
 }
+
+const posts = await getCollection("post")
 
 const { title, class: className = "", seo } = Astro.props
 
@@ -106,7 +109,7 @@ Astro.response.headers.set("Cache-Control", "public, max-age=3600")
   <body
     class="bg-white font-pretendard text-black transition-colors duration-100 selection:bg-black selection:text-white dark:bg-neutral-950 dark:text-white dark:selection:bg-white dark:selection:text-black"
   >
-    <SearchWindow client:load />
+    <SearchWindow client:load posts={posts} />
 
     <Header />
     <main class="flex min-h-screen w-full flex-col items-center">

@@ -1,13 +1,8 @@
 import { defineConfig } from "astro/config"
 import tailwind from "@astrojs/tailwind"
-import vercel from "@astrojs/vercel/serverless"
 import svelte from "@astrojs/svelte"
 import AstroPWA from "@vite-pwa/astro"
 
-// https://astro.build/config
-import qwikdev from "@qwikdev/astro"
-
-// https://astro.build/config
 export default defineConfig({
   site: "https://blog.sujang.xyz",
   integrations: [
@@ -16,15 +11,10 @@ export default defineConfig({
         applyBaseStyles: true,
       },
     }),
-    svelte(),
+    svelte({ extensions: [".svelte"] }),
     AstroPWA(),
-    qwikdev(),
-    vercel({ functionPerRoute: false }),
   ],
-  output: "hybrid",
-  // adapter: vercel({
-  //   functionPerRoute: false,
-  // }),
+  output: "static",
   vite: {
     build: {
       rollupOptions: {

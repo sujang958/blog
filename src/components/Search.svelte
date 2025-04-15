@@ -2,10 +2,11 @@
   import { searchWindowShown } from "./stores"
 </script>
 
+<!-- svelte-ignore a11y_consider_explicit_label -->
 <button
   type="button"
   class="cursor-pointer"
-  on:click={() => ($searchWindowShown = !$searchWindowShown)}
+  onclick={() => ($searchWindowShown = !$searchWindowShown)}
 >
   <svg
     xmlns="http://www.w3.org/2000/svg"

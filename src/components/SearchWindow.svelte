@@ -1,19 +1,17 @@
 <script lang="ts">
   import { searchWindowShown } from "./stores"
 
-  import { getCollection, type CollectionEntry } from "astro:content"
+  import { type CollectionEntry } from "astro:content"
   import Fuse from "fuse.js"
   import { onMount } from "svelte"
 
-  export let posts: CollectionEntry<"post">[] = <any>[]
-
-  getCollection("post").then((collection) => (posts = collection))
+  const { posts }: { posts: CollectionEntry<"post">[] } = $props()
 
   const fuse = new Fuse(posts, {
     keys: ["data.title", "data.category", "data.date", "data.description"],
   })
 
-  let query = ""
+  let query = $state("")
   let queryInput: HTMLInputElement
 
   onMount(() => {
@@ -37,8 +35,6 @@
       $searchWindowShown = false
     })
   })
-
-  $: fuse.setCollection(posts)
 
   searchWindowShown.subscribe((shown) => {
     if (shown) setTimeout(() => queryInput.focus(), 1)
@@ -66,7 +62,7 @@
       <!-- TODO: solve tab prob and use matches to higlight matches (like chakraui hightlight) -->
       {#each fuse.search(query) as result}
         <a
-          href="/posts/{result.item.slug}"
+          href="/posts/{result.item.id}"
           class="flex cursor-pointer flex-col items-start rounded-lg p-2 hover:bg-black/20"
         >
           <p class="text-sm text-neutral-600 dark:text-neutral-300">
