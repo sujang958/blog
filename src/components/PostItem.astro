@@ -7,11 +7,11 @@ interface Props {
 
 const { post } = Astro.props
 
-const { data, slug } = post
+const { data, id } = post
 ---
 
 <a
-  href={`/posts/${slug}`}
+  href={`/posts/${id}`}
   class="group flex cursor-pointer flex-col items-center justify-center md:flex-row md:space-x-16"
 >
   <div
